@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="bootstrap-4.5.2/dist/css/bootstrap.min.css">
+    <title>Assignment</title>
+    <style>
+        body {
+            background-image: url;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+           <div class="w-50">
+            <input type="number" placeholder="phoneNumber" required class="form-control" id="pn"> <br><br>
+            <input type="email" placeholder="email" required class="form-control"> <br> <br>
+            <input type="password" placeholder="password" required class="form-control"> <br><br>
+            <button class="bg-primary rounded-pill p-2 text-white" onclick="val()">Submit</button>
+           </div>
+       </div>
+        <script>
+            
+            val = () => {
+                var phoneNumber = pn.value;
+                // var phoneNumber2 = pn;
+                var regexForPhone = /^([0-9]{11})$/;
+                if (regexForPhone.test(phoneNumber)){
+                    alert('done');
+                    return  true;
+                }
+                else {
+                    phoneNumber2.style.border = "3px solid red";
+                    return false;
+                }
+            }
+        </script> 
+</body>
+</html>

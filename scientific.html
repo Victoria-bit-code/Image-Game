@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		.buttons {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+		} 
+		#screen {
+			width: 100%;
+			height: 2rem;
+		} 
+	</style>
+</head>
+<body>
+	<div>
+		<input id="screen" />
+	</div>
+	<div class="buttons">
+		<button onClick="btn('clear')">Clear</button>
+		<button onClick="btn('sin')">Sin</button>
+		<button onClick="btn('cos')">Cos</button>
+		<button onClick="btn('tan')">Tan</button>
+		<button onClick="btn(7)">7</button>
+		<button onClick="btn(8)">8</button>
+		<button onClick="btn(9)">9</button>
+		<button onClick="btn('×')">×</button>
+		<button onClick="btn(4)">4</button>
+		<button onClick="btn(5)">5</button>
+		<button onClick="btn(6)">6</button>
+		<button onClick="btn('÷')">÷</button>
+		<button onClick="btn(3)">3</button>
+		<button onClick="btn(2)">2</button>
+		<button onClick="btn(1)">1</button>
+		<button onClick="btn('-')">-</button>
+		<button onClick="btn(0)">0</button>
+		<button onClick="btn(')')">)</button>
+		<button onClick="btn('=')">=</button>
+		<button onClick="btn('+')">+</button>
+	</div>
+	<script>
+		const screen = document.getElementById('screen');
+		let calc = '';
+		function btn(el) {
+			if (typeof el === 'number' || el === '+' || el === '-' || el === '0' || el === ')') {
+			  screen.value += String(el);
+			  calc += String(el);
+			} 
+			else if (el === '×') {
+				screen.value += el;
+				calc += '*';
+			} else if (el === '÷') {
+				screen.value += el;
+				calc += '/';
+			} else if (el === '=') {
+				screen.value = eval(calc);
+				calc = '';
+			} else if (el === 'sin') {
+				screen.value += 'sin(';
+				calc += 'sin(';
+			} else if (el === 'cos') {
+				screen.value += 'cos(';
+				calc += 'cos(';
+			} else if (el === 'tan') {
+				screen.value += 'tan(';
+				calc += 'tan(';
+			} 
+			else if (el === 'clear') {
+				screen.value = '';
+				calc = '';
+			}
+		} 
+		
+		function toRadian(num) {
+			return (num * Math.PI)/180;
+		} 
+		
+		function sin(num) {
+			return Math.sin(toRadian(num));
+		} 
+		
+		function cos(num) {
+			return Math.cos(toRadian(num));
+		} 
+		
+		function tan(num) {
+			return Math.tan(toRadian(num));
+		} 
+	</script>
+	<script src="./eruda.js"></script>
+	<script>eruda.init();</script>
+</body>
+</html>

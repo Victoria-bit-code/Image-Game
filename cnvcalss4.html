@@ -1,0 +1,104 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width>, initial-scale=1.0">
+        <title>Canvas</title>
+    </head>
+    <body>
+    <canvas style="border: 1px solid black; width: 50%; height: 50%; background-color: white;" id="can">
+        </canvas> <br>
+        <button onclick="makeShape('c')">Circle</button>
+        <button onclick="makeShape('r')">Rectangle</button>
+        <button onclick="makeShape('l')">Line</button>
+        <button onclick="makeShape('t')">Triangle</button>
+        <button onclick="makeShape('o')">Oval</button>
+        <button onclick="eraser()">Eraser</button>
+        <script>
+            let ctx = can.getContext("2d");
+            let startX, startY, endX, endY;
+            let shapeall;
+            function drawCircle() {
+                ctx.beginPath();
+                ctx.arc(endX, endY, 15, 0, Math.PI*2, true);
+                ctx.stroke();
+            }
+            function drawRec() {
+                ctx.fillRect(endX, endY, 50, 50);        
+            }
+            function drawLine() {
+                ctx.moveTo(startX, startY,);
+                ctx.lineTo(endX, endY);
+                ctx.stroke();
+            }
+            function drawTriangle(){
+                ctx.fillRect(endX, endY, 50, 50,);
+            } function drawOval() {
+                ctx.beginRect();
+                ctx.arc(endX, endY, 15, 15, 0, Math.PI*2);
+                ctx.stroke();
+            }
+            let shape = function(e){
+              startPoint(); 
+              endPoint();
+            } 
+           let startPoint = function(e){
+            startX = event.x;
+            startY = event.y;
+            }
+            let endPoint = function(e){
+            endX = event.x;
+            endY = event.y;
+            function makeShape(m) {
+                if (m == 'c') {
+                drawCircle();
+                }else if (m == 'r') {
+                drawRec();
+                }else if (m == 'l') {
+                drawLine();
+                }else if (m == 't') {
+                drawTriangle();
+                }else if (m == 'o') {
+                drawOval();      
+            }
+            }
+            function makeShape() {
+                shapeall = 'c';
+                shapeall = 'r';
+                shapeall = 'l';
+                shapeall = 't';
+                shapeall = 'o';
+            }
+            function eraser() {
+                ctx.clearRect(startX, startY, endX-startX, endY-startY);
+            }
+            can.addEventListner('mousedown', startPoint);
+            can.addEventListner('mouseup', endPoint);
+            // onmousedown="startPoint(event)" onmouseup="endPoint(event)"
+            // function makeCircle (m) {
+            //     if (m === 'c') {
+            //         ctx.beginPath();
+            //         ctx.arc(startX, startY, 15, 0, Math.PI*2);
+            //         ctx.stroke();
+            //     }else if (m === 'r') {
+            //         ctx.strokeRect(startX, startY, 50, 50);
+            //         ctx.stroke();
+            //     }else if (m === 'l') {
+            //         ctx.moveTo(startX, startY,);
+            //         ctx.lineTo(endX, endY);
+            //         ctx.stroke();
+            //     }else if (m === 't') {
+            //         ctx.strokeRect(startX, satrtY, 50, 50,);
+            //         ctx.stroke();
+            //     }else if (m === 'o') {
+            //         ctx.arc(startX, satrtY, 15, 0, Math.PI*2);
+            //         ctx.stroke();
+            //     }else{
+            //         if (erase)
+            //         ctx.clearRect(startX, startY, endX, endY);
+            //         erase = false;
+            //     }
+            }
+        </script>
+    </body>
+    </html>

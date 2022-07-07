@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="bootstrap-4.5.2/site/docs/4.5/assets/js/vendor/jquery.slim.min.js"></script>
+    <script src="bootstrap-4.5.2/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootstrap-4.5.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <script src="https://kit.fontawesome.com/5f5db04ddd.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"></script>
+    <title>Document</title>
+    <style>
+        .content {
+            position: relative;
+            top: 200px;
+        }
+        .button {
+            width: 100px;
+            height: 100px;
+            color: #fff;
+            font-size: 5em;
+        }
+    </style>
+</head>
+<script>
+    var checkOn;
+    var start
+    function myInp (e) {
+        if (checkOn) {
+            checkOn = false;
+            e.target.innerHTML = '';
+        }
+    }
+    function tic (e) {
+        if (start) {
+            start = false;
+            e.target.innerHTML = 'S';
+        }else {
+            start = true;
+            e.target.innerHTML = 'M';
+        }
+    }
+    // function myStart () {
+    //     if (start) {
+           
+    //     }else{
+    //         start = true
+    //     }
+    // }
+
+    
+</script>
+<body>
+    <div class="container content">
+        <div class="row">
+            <div class="col-md-4"> <button onclick="tic()">start</button></div>
+            <div class="col-md-4">
+                <p>Enter your name to start the game</p>
+                Player 1 <input type="text" class="w-25" onclick="myInp(event)" placeholder="player1" id="pp1"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                Player 2 <input type="text" class="w-25" placeholder="player2" id="pp2">
+                <div class="row border">
+                    <div onclick="tic(event)" class="col-4 bg-primary btn bnt-lg btn-outline-dark button text-white" id="1"></div>
+                    <div onclick="tic(event)" class="col-4 bg-primary btn bnt-lg btn-outline-dark button text-white" id="2"></div>
+                    <div onclick="tic(event)" class="col-4 bg-primary btn bnt-lg btn-outline-dark button text-white" id="3"></div>
+                </div>
+                <div class="row border">
+                    <div onclick="tic(event)" class="col-4 bg-primary btn bnt-lg btn-outline-dark button text-white" id="4"></div>
+                    <div onclick="tic(event)" class="col-4 bg-primary btn bnt-lg btn-outline-dark button text-white" id="5"></div>
+                    <div onclick="tic(event)" class="col-4 bg-primary btn bnt-lg btn-outline-dark button text-white" id="6"></div>
+                </div>
+                <div class="row border">
+                    <div onclick="tic(event)" class="col-4 bg-primary btn bnt-lg btn-outline-dark button text-white" id="7"></div>
+                    <div onclick="tic(event)" class="col-4 bg-primary btn bnt-lg btn-outline-dark button text-white" id="8"></div>
+                    <div onclick="tic(event)" class="col-4 bg-primary btn bnt-lg btn-outline-dark button text-white" id="9"></div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+</body>
+</html>

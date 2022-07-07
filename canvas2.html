@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="cnv" width="400px" height="400px" style="border:1px solid #000000;">
+    </canvas>
+    <script>
+        let ctx =cnv.getContext('2d');
+        for (var i = 0; i < 10; i++) {
+            ctx.arc(myX, myY, myRadius, 0, Mah.PI*2);
+        }
+        ctx.arc(150, 150, 15, 0, Math.PI*2);
+        ctx.moveTo(170+15, 150);
+        ctx.arc(170, 150, 15, 0, Math.PI*2);
+        ctx.stroke();
+
+
+    </script>
+</body>
+</html>

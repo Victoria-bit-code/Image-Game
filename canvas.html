@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <button onmousemove="sayHi("></button> -->
+    <!-- <button onclick="myFunc(event)">btn</button> -->
+    <button>Eraser</button>
+    <canvas id="cnv" width="400px" height="400px" style="border:1px solid #000000;">
+    </canvas>
+    <script type="text/javascript">
+        let ctx = cnv.getContext('2d');
+        console.log(ctx);
+        let startX, startY, endX, endY;
+        cnv.addEventListener('mousedown', event=>{
+            startX = event.X-8;
+            startY = event.Y-8;
+        });
+        cnv.addEventListener('mouseup', event=>{
+            endX = event.x-8;
+            endY = event.y-8;
+            if (erase) {
+                ctx.clearRect(startX, startY, endX-startX, endY-startY);
+                erase = false;
+            } else{
+                ctx.moveTo(startX, startY);
+                ctx.lineTo(endX, endY);
+                ctx.stroke();
+            }
+            console.log(erase)
+            // console.log(startX, startY, endX, endY);
+        });
+        // const
+        // ctx.fillStyle= 'red';
+        // const myFunc= e=> {
+        //     alert(`${value})
+        // }
+        // console.log(ctx);
+        // ctx.arc(40, 40, 30, 0, Math.PI*2);
+        // ctx.stroke();
+        // ctx.arc(40, 40, 30, 0, Math.PI/2, Math.PI*2, true );
+        // ctx.stroke();
+        // ctx.strokeRect(30,30,50,50);
+        // ctx.fillRect(30,30,50,50);
+        // ctx.moveTo(50, 50);
+        // ctx.lineTo(50, 70);
+        // ctx.moveTo(50, 90);
+        // ctx.lineTo(50, 110);
+        // ctx.moveTo(50, 130);
+        // ctx.lineTo(50, 150);
+        // ctx.stroke();
+        // ctx.moveTo(50, 50);
+        // ctx.lineTo(100, 100);
+        // ctx.moveTo(200, 50);
+        // ctx.lineTo(50, 50);
+        // ctx.stroke();
+    </script>
+</body>
+</html>

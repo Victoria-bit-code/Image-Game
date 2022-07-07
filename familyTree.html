@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Family Tree</title>
+    <script>
+        b = JSON.parse(localStorage.getItem('familyTree'));
+        if (b != null){
+            names = b;
+        } else{ 
+            names = [];
+        }
+
+        
+
+       
+        function writeList(){
+        
+            names.push({"firstName": fName.value, "lastName": lName.value});
+            // a = JSON.stringify(names);
+            // localStorage.setItem('familyTree', a);
+
+            disp();
+
+        }
+
+        function disp(){
+            a = JSON.stringify(names);
+            localStorage.setItem('familyTree', a);           
+            
+
+            ih = "";
+            for(i=0;i<names.length;i++){
+                ih += "<tr><td>" +(i+1) + "</td> <td>" + names[i].firstName + "</td> <td> " +  names[i].lastName + "</td><td> <button onclick= \"dele(" + i + ")\"> X </button></td><td><button onclick = \"editNames(" +i+ ")\"> ED</button><button onclick = \"updateNames(" +i+ ")\"> UP</button></td></tr>";
+            }
+            list.innerHTML = ih;
+
+        }
+
+        function dele(n){
+            if(confirm('Are you sure you want to delete ' + names[n].firstName +" " + names[n].lastName + ' from this list') == true){
+                names.splice(n,1);
+                // a = JSON.stringify(names);
+                // localStorage.setItem('familyTree', a);
+                disp();
+            } else{
+                alert("No changes were made")
+            }
+        }
+
+        function editNames(a){
+            fName.value = names[a].firstName;
+            lName.value = names[a].lastName;
+            // a = JSON.stringify(names);
+            // localStorage.setItem('familyTree', a);
+        }
+
+        function updateNames(s){
+            names[s].firstName = fName.value;
+            names[s].lastName = lName.value;
+            // a = JSON.stringify(names);
+            // localStorage.setItem('familyTree', a);
+            disp();
+        }
+
+       
+
+      
+
+
+    </script>
+</head>
+<body onload="disp()">
+    <table>
+        <tr><td colspan="2"><h1>FAMILY TREE</h1></td></tr>
+        <tr> <td>First Name</td> <td><input type="text" name="" id="fName"></td></tr>
+        <tr> <td>Last Name</td> <td><input type="text" name="" id="lName"></td></tr>
+        <!-- <tr> <td>Age</td> <td><input type="text" name="" id="age"></td></tr> -->
+        <tr><td><button onclick="writeList()">REGISTER</button></td><td><button>UPDATE</button></td></tr>
+    </table>
+
+    <table align="center" border="2" style="width: 70vw;">
+        <thead>
+            <tr><td colspan="5">This is All my Family Members </td></tr>
+            <tr><th>S/N</th> <th>First Name</th> <th>Last Name</th> <th title="Delete">D</th> <th>EDIT</th></tr>
+        </thead>
+        <tbody id="list">
+            
+        </tbody>
+    </table>
+
+    
+
+</body>
+</html>

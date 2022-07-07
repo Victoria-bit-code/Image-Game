@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="bootstrap-4.5.2/dist/css/bootstrap.min.css">
+    <title>Javascript localStorage</title>
+</head>
+<body onload="aList()"> 
+    <br><br>
+   <center>
+    <table >
+        <tr><th>Job Registration</th></tr>
+        <tr>
+            <td>First Name</td>
+            <td><input type="text" id="fn"></td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td><input type="text" id="ln"></td>
+        </tr>
+    </table>
+    <br>
+    <button onclick="register()" class="rounded-pill">Register</button>
+    <button onclick="update()" class="rounded-pill">UPDATE</button>
+    <table border="3" class="mt-3 w-25 text-center">
+        <tr><th colspan="5">Applicant List</th></tr>
+        <tr> 
+            <th>SN</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th title="DELETE">Del</th>
+            <th>Edit</th>
+        </tr>
+        <tbody id="tb"></tbody>
+    </table>
+    <br>
+   </center>
+   
+</body>
+<script>
+    getList = JSON.parse(localStorage.getItem('anoList'))
+    edit = '';
+    if (getList != null) {
+        applicantsA = getList;
+    } else {
+        applicantsA = [];
+    }
+
+    function register () {
+        applicantsA.push({'firstName':fn.value, 'lastName':ln.value});
+        aList();
+    }
+
+    function aList() {
+        a = JSON.stringify(applicantsA);
+        localStorage.setItem("anoList", a);
+
+        var display = "";
+        edit = ""
+
+        for (i = 0; i< applicantsA.length; i++)
+         {
+         display +=`<tr><td>${i +1}</td><td>${applicantsA[i].firstName}</td>
+             <td>${applicantsA[i].lastName}</td>
+             <td onclick = "deleBtn(${i})"> <img src="images/delete.png" width = 20></td>
+             <td onclick = "editBtn(${i})"><img src = "images/editt.jpg" width = 30 ></td></tr>`;
+        }
+        tb.innerHTML = display;
+        fn.value = '';
+        ln.value = '';
+    } 
+    function deleBtn (i) {
+        if (confirm(`Are you sure you want to delete ${applicantsA[i].firstName} ${applicantsA[i].lastName} from the list?`) == true) {
+             applicantsA.splice(i, 1);
+             aList();
+        }else {
+            alert('No changes were made');
+        }
+    }  
+    function editBtn (i) {
+        edit = i;
+        // if (confirm(`Are you sure you want to edit ${applicantsA[i].firstName} ${applicantsA[i].lastName}`))
+         if (confirm(`Are you sure you want to edit line ${i + 1}`) == true) {
+             fn.value = applicantsA[i].firstName;
+             ln.value = applicantsA[i].lastName;
+         }
+    } 
+    function update () {
+        applicantsA.splice(edit, 1, {
+            "firstName":applicantsA.firstName,
+            "lastName" :applicantsA.lastName,
+        })
+        aList ();
+        // a = JSON.stringify(applicantsA);
+        // localStorage.setItem("anoList", a);
+        // console.table(applicantsA);
+        // alert("done");
+    }
+</script>
+</html>

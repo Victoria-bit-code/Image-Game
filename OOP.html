@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script>
+        class House {
+            door = {height: '2m', width: '0.4m' };
+            window = {height: '0.56m', width: '0.65m'};
+            // name = "Bungalow";
+            constructor (n) {
+                this.name = n;
+                // this.name = "Bungalow";
+            }
+            anotherFunc (location) {
+                // console.log(this.name);
+                console.log(`${this.name}, I am situated at ${location}`);
+            }
+            // classRep () {
+                // console.log('I am a stubborn boy');
+                // console.log(this.name);
+            
+        }
+        let myHouse = new House('Bungalow');
+        let anotherHouse = new House ('Storey building');
+        myHouse.anotherFunc('Ibadan');
+        // myHouse.name = "Storey building";
+        // myHouse.classRep();
+    </script> -->
+    Construct your House
+    <input type="" id= "houseName" name="" placeholder="type">
+    <input type="" id= "doorHeight" name="" placeholder="door height">
+    <input type="" id= "doorWidth" name="" placeholder="door width">
+    <input type="" id= "windowHeight" name="" placeholder="window height">
+    <input type="" id= "windowWidth" name="" placeholder="window width">
+    <button onclick="createHouse()">create house</button>
+
+    <script>
+        const createHouse = () => {
+            let myNewHouse = new House (houseName.value, doorHeight.value, doorWidth.value, windowHeight.value, windowWidth.value);
+            console.log(myNewHouse.door);
+        }
+        class House {
+            constructor (n, doorH, doorW, windH, windW) {
+                this.name = n;
+                this.door = {height: doorH, width: doorW};
+                this.window = {height: windH, width: windW};
+            }
+            anotherFunc (location) {
+                console.log(`${this.name}, I am situated at ${location}`);
+            }
+        }
+        let myHouse = new House ('Bungalow', '2m', '0.2m', '4m', '2m' )
+        let anotherHouse = new House ('storey building', '5m', '0.6m', '3m', '3m')
+    </script>
+</body>
+</html>

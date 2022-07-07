@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Alarm</title>
+    <style>
+        .div1 {
+            border: 2px solid black;
+            width: 250px;
+            height: 40px;
+            text-align: center;
+            font-size: 2em;
+        } 
+       
+    </style>
+</head>
+<body>
+    <div id="divTime" class="div1"></div> <br/>
+    Hours <br/>
+   <input type="text" id= "res"> <br/>
+   Minutes <br/>
+   <input type="text" id= "res2"> <br/>
+   Seconds <br/>
+   <input type="text" id= "res3"> 
+   <select name="" id="selects">
+       <option value="AM">AM</option>
+       <option value="PM">PM</option>
+   </select> <br/> <br/>
+    <button onclick="myAlarm()">Start</button>
+    <button onclick="myStop()">Stop</button>
+    <p id = "message"></p>
+    <div id="go"></div>
+    <input type="text" id="myAns">
+    <div id="question"></div>
+</body>
+    <script>
+        var hour;
+        var min;
+        var sec;
+        var total;
+        var totalTime;
+        var sel;
+        var sound = new Audio("audios/BiggerEveryday.mp3") ;
+        setInterval(myTime, 1000);
+
+      function myTime () {
+        var a = new Date;
+        var one = a.getHours();
+        var two = a.getMinutes();
+        var three = a.getSeconds();
+        var tod;
+        if (one < 12) {
+            tod = 'AM';
+        } else {
+            tod="PM";
+        }
+        if (two < 10) {
+            two  = '0' + two;
+        } else {
+           two = two; 
+        }
+        if (three < 10) {
+            three  = '0' + three;
+        } else {
+           three = three; 
+        }
+        totalTime = one  + ':' + two + ":" + three + ' ' + tod;
+
+        divTime.innerHTML = totalTime;
+
+        if ( totalTime == total) {
+                sound.play();
+            }
+      }
+
+        function myAlarm (){
+             hour = res;
+             min = res2;
+             sec = res3;
+             sel = selects;
+             total = hour.value + ':' + min.value + ':' + sec.value + ' ' + sel.value;
+         
+             if (hour.value != '' && min.value != '' && sec.value != '') {
+                 message.innerHTML = 'YOUR ALARM HAS BEEN SET TO ' + ' ' + total;
+             }
+        }
+
+       function myStop () {
+           sound.pause();
+           var arr = ["12 * 3", "15 - 1", "2 / 1", "5 + 9", "3 * 6", "70 / 10", "12 / 3", "10 + 13"];
+           var m = Math.random();
+           arr[m];
+       }
+    </script>
+</html>

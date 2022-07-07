@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="bootstrap-4.5.2/dist/css/bootstrap.min.css">
+    <title>Login Page</title>
+    <style>
+        /* a {
+            
+        } */
+        body {
+            background :url(images/backg.jpeg);
+            background-repeat : 'no-repeat'; 
+            background-size: cover;
+            position: relative;
+        }
+        .login {
+            width: 100%;
+            background-color: rgb(212,236,213);
+            border-radius: 30px;
+            margin-top: 12%;
+            border: none;
+        }
+        .myBorder {
+            border: none;
+            border-bottom: 3px solid rgb(10, 10, 10);
+            background: none;
+        }
+        .para {
+            font-size: 12px;
+            font-weight: bold;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
+            font-style: italic;
+            color: rgb(56,142,60);
+            /* color: rgb(56,142,60); */
+        }
+        p {
+            font-size: 12px;
+        }
+        .big {
+            margin-top: -7%;
+        }
+        .loginBtn {
+            border-radius: 12px;
+            background-color: rgb(56,142,60);
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body class="myBody">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class=" card col-md-4 w-75 login pt-4 shadow">
+                <center>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6"><small class="text-white "><i class="text-danger">Don't have an account?</i></small></div>
+                            <div class="col-md-6"><button onclick="signUp()" class="rounded bg-success text-light border">Sign Up</button></div>
+                        </div>
+                    </div>
+                    <img src="images/img8.png" width="220" alt="" class="mt-3">
+                    <div class="container">
+                        <p class="mt-3 para">
+                            E-mail ID
+                    <input type="email" class="form-control w-75 myBorder big" id="mail">
+                </p>
+                    </div>
+                    <p class="para">Password
+                    <input type="email" class="form-control w-75 myBorder big" id="pas">
+                </p>
+                </center>
+                <br>
+                <button onclick="val()" class="mb-3 p-1 loginBtn form-control"><b>Login</b></button>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+</body>
+<script>
+    var applicants = JSON.parse(localStorage.getItem('myList'))
+    val = () => {
+        let applicant = applicants.find(applicant=>applicant.email == mail.value);
+        if(applicant){
+            let validPassword = (applicant.password == pas.value);
+            if(validPassword){
+                window.location = 'dashboard.html';
+            } else{
+                pas.value = 'Incorrect Password';
+                // pas.className = 'form-control is-invalid w-50';
+                // pas.style.color = 'red';
+            }
+        } else{
+            mail.value = "Email doesn't exist";
+            // mail.className = 'form-control is-invalid';
+            mail.style.color = 'red'
+        }
+        aSet = JSON.stringify(applicant);
+        localStorage.setItem('subList', aSet)
+        // for (i=0; i<login.length; i++){
+        //     if (mail.value == login[i].email && pas.value == login[i].password) {
+        //     } else if (mail.value != login[i].email && pas.value == login[i].password) {
+        //         alert('Wrong E-mail');
+        //     }else if (mail.value == login[i].email && pas.value != login[i].password) {
+        //         alert('Wrong Password');
+        //     } else {
+        //         alert('You have not been registered, please sign Up');
+        //     }
+        // }      
+    }
+    signUp= () => {
+        window.location = 'regPage.html';
+    }
+</script>
+</html>

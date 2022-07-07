@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="bootstrap-4.5.2/dist/css/bootstrap.min.css">
+
+    <title>Admin Page</title>
+</head>
+<style>
+        body {
+            background-color: rgb(212,236,213);
+            max-width: 100vh;
+            max-height: 100vh;
+        }
+        table {
+            text-align: center;
+            font-size: 18px;
+        }
+        .aDiv {
+            margin-top: 8%;
+            margin-left: 45%;
+            /* color: rgb(56,142,60); */
+        }
+        .color {
+            background-color: rgb(55,108,58);
+        }
+</style>
+<body onload="remove()">
+<main>
+   <center>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 card rounded border-none; shadow p-0 aDiv">
+                <table class="table table-responsive-sm">
+                    <tr class="border-none color">
+                        <th colspan="5"></th> 
+                        <th class="text-light text-right" style="font-size: 13px;">
+                            <a href="dashboard.html" class="text-white text-decoration-none">Dashboard</a> &nbsp;
+                            <a href="regPage.html" class="text-white text-decoration-none">Registration</a> &nbsp; 
+                            <a href="loginAss.html" class="text-white text-decoration-none">Logout</a></th>              
+                    </tr>
+                    <tr style="background-color: rgb(56,142,60);" class="border-none">
+                        <th colspan="6" class="text-light shadow" style="font-size: 15px; text-align: left;">
+                         Below are the list of the Applicants
+                        </th>
+                </tr>
+                    <tr><th colspan="6"class="h3 text-success " > List of the Applicants</th></tr>
+            </table>
+            <table class="table table-responsive-sm table-bordered table-hover">
+                    <tr class="h6 "><th>SN</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Phone Number</th>
+                        <th title="DELETE">Del</th>
+                        <th>Edit</th>
+                    </tr>
+                    <tbody id="tb"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+   </center>
+   <!-- <div class="modal fade" id="edit" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"> Edit Table </h5>
+                <button type="button" class="close" data-dismiss = "modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="text" placeholder="Firstname" class = "form-control" id="fn2"> 
+                <input type="text" placeholder="Lastname" class="form-control" id="ln2">
+                <input type="text" placeholder="PhoneNumber" class="form-control" id="pn2">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"> Close </button>
+                <button type="button" class="btn btn-primary"> Save changes</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+</main>
+<script>
+    var myTable = JSON.parse(localStorage.getItem('myList'));
+    if (myTable != null) {
+        store = myTable;
+    }else {
+        store = [];
+    }
+
+    remove = () => {
+        set = JSON.stringify(store);
+        localStorage.setItem('myList', set);    
+        display = "";
+
+     for(i=0; i<store.length; i++) 
+            {
+                display += `<tr class= 'h6'><td>${i +1 }</td><td>${store[i].firstName}</td><td>${store[i].lastName}</td>
+                            <td>${store[i].phoneNumber}</td><td onclick = "deleBtn(${i})"><img src = 'images/delete.png' width = '18'></td>
+                            <td onclick = "editBtn(${i})" data-bs-toggle = "modal" data-bs-target = "#edit"><img src = 'images/editt.jpg' width = '28'></tr>`
+            }
+            tb.innerHTML = display;
+    }
+
+            deleBtn = (i) =>{
+        if (confirm(`Are you sure you want to delete ${store[i].firstName} ${store[i].lastName} from the list?`) == true) {
+             store.splice(i, 1);
+             remove();
+        }else {
+            alert('No change was made');
+        }
+    }  
+    // editBtn = (i) => {
+    //     // if (confirm(`Are you sure you want to edit ${applicantsA[i].firstName} ${applicantsA[i].lastName}`))
+    //      if (confirm(`Are you sure you want to edit line ${i + 1}`) == true) {
+    // //      }
+    // } 
+    // update = (i) => {
+    //     fn.value = myTable[i].firstName;
+    //     ln.value = myTable[i].lastName;
+    //     alert("done");
+    // }
+</script>
+</body>
+</html>

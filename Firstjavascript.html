@@ -1,0 +1,763 @@
+h
+|<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="jquery.js"></script>
+</head>
+<body>
+	<!-- <div id="space" class="oin">	</div>
+	<div id="space" class="oin">	</div>
+	<div id="space" class="oin">	</div>
+	<div id="space" class="oin">	</div>
+	<div id="space" class="oin">	</div> -->
+	<!-- datatypes -->
+
+
+	<!-- Hello -->
+<!-- <div id="result" style="background-color: red; color: white"> Hello World</div>
+	<input id="space" type="" value="6" name=""> -->
+<!-- 
+	<input type="" onkeydown="myFunc()" name="">
+-->
+	<!-- <input type="text" id="result" value="6" name="myName">
+-->
+	<!-- <button onclick="sayName('Felix')">anotherButton</button>
+
+	<button onclick="sayName('Joy')">click</button> -->
+
+	<!-- <input type="text" name="" >
+	<button>Click</button>
+	<div></div> -->
+	<!-- <button></button> -->
+
+	<!-- <button onclick="sayName('Felix, Me')">anotherButton</button>
+
+	<button onclick="sayName('Joy, Me')">click</button> -->
+	
+	<!-- good afternoon 1
+	good afternoon 2 -->
+
+	<!-- <div>
+		<button id="anything" onclick="myFunc(event)">click</button>
+	</div>
+	<button onclick="myFunc(event)"> Press</button> -->
+<!-- <input type="text" id="prop" >
+<input type="text" id="myVal">
+<button onclick="setToObj()" id="btn">click</button>
+<p id="mmm"></p> -->
+
+<!-- <button onclick="multip()">click</button> -->
+
+
+
+
+
+
+<!-- <canvas id="mycanvas" x="400px" height="400" style=" border: 2px solid grey;"></canvas> -->
+<!-- <img id="image" src="img/up.png" style="display: none" alt=""> -->
+<canvas id="canvas" width="400px" height="400" style=" border: 2px solid grey;"></canvas>
+
+
+<script type="text/javascript">
+
+// var canvas=document.getElementById('canvas');
+var context=canvas.getContext('2d');
+var radius=50;
+var nStartX = 0;
+var nStartY = 0;
+var bIsDrawing = false;
+var putPoint = function(e){
+	console.log(e)
+  nStartX = e.clientX;nStartY = e.clientY;
+  bIsDrawing = true;
+  radius = 0;
+}
+var drawPoint = function(e){
+	console.log(e)
+  if(!bIsDrawing)
+    return;
+  var nDeltaX = nStartX - e.clientX;
+  var nDeltaY = nStartY - e.clientY;
+  radius = Math.sqrt(nDeltaX * nDeltaX + nDeltaY * nDeltaY)
+//   context.clearRect(0, 0, canvas.width, canvas.height);
+  context.beginPath();
+  context.arc(nStartX, nStartY, radius, 0, Math.PI*2);
+  context.fill();
+}
+var stopPoint = function(e){
+  bIsDrawing = false;
+}
+canvas.addEventListener('mousedown',putPoint);
+canvas.addEventListener('mousemove',drawPoint);
+canvas.addEventListener('mouseup',stopPoint);
+// let y = 50;
+// let x = 50;
+// let speed = 5;
+
+// let ctx = canvas.getContext("2d");
+// myFunc = () => {
+// 	ctx.clearRect(0, 0, canvas.width, canvas.height)
+// 	ctx.drawImage(image, x, y, 50, 50);
+// 	requestAnimationFrame(myFunc)
+// 	if (x<=0) {
+// 		x=0;
+// 	} else if (x+50 >= canvas.width) {
+// 		x= canvas.width-50;
+// 	}
+// 	if (y<=0) {
+// 		y=0;
+// 	} else if (y+50 >= canvas.height) {
+// 		y=canvas.height-50;
+// 	}
+// }
+// myFunc();
+
+// const sendMessage = e => {
+// 	if (e.key === "ArrowUp" && y>=50){
+// 		y-=speed;
+// 	} else if (e.key === "ArrowDown"){
+// 		y+=speed;
+// 	} else if (e.key === "ArrowRight" ){
+// 		x+=speed;
+// 	} else if (e.key === "ArrowLeft"){
+// 		x-=speed;
+// 	}
+// }
+
+// window.addEventListener("keydown", sendMessage);
+
+
+// fill
+// stroke
+	// let canvas = mycanvas
+	// let ctx = canvas.getContext('2d');
+	// // ctx.arc(100, 100, 80, Math.PI , 0)
+	// ctx.arc(200, 200, 100, 0, Math.PI*2)
+	// ctx.fillStyle = "gold"
+	// ctx.fill()
+
+	// // ctx.fillStyle = "white"
+	// ctx.moveTo(260, 200)
+	// ctx.arc(200, 200, 60, 0, Math.PI)
+	// ctx.stroke()
+
+	// ctx.moveTo(185, 160)
+	// ctx.arc(170, 160, 15, 0, Math.PI*2)
+	// ctx.fill()
+
+	// ctx.moveTo(245, 160)
+	// ctx.arc(230, 160, 15, 0, Math.PI*2)
+	// ctx.stroke()
+
+	// let cv = canvas;
+	// let ctx = cv.getContext("2d");
+	// let x = 200;
+	// let y = 200;
+	// let toBeAdded = 4;
+	// let anothervar = 3;
+	// // ctx.arc(200, 200, 20, 0, Math.PI*2);
+	// ctx.fillStyle = "blue"
+
+
+	// const myFunc = () =>{
+	// 	ctx.clearRect(0, 0, 400, 400);
+	// 	ctx.beginPath();
+	// 	ctx.arc(x, y, 20, 0, Math.PI*2);
+	// 	ctx.fill();
+	// 	x += toBeAdded;
+	// 	y += anothervar;
+	// 	if (x +20>= 400 || x-20<=0) {
+	// 		toBeAdded*=-1;
+	// 	}
+	// 	if (y +20>= 400 || y-20<=0) {
+	// 		anothervar*=-1;
+	// 	}
+	// 	requestAnimationFrame(myFunc);
+	// }
+	// myFunc();
+
+
+
+	// ctx.beginPath();
+	// ctx.moveTo(80, 80);
+	// ctx.lineTo(40, 120);
+	// ctx.lineTo(120, 120)
+	// ctx.lineTo(80, 80)
+	// ctx.closePath();
+	// ctx.fill();
+	// ctx.fillStyle = "red"
+	// ctx.fill();
+
+	// ctx.fillStyle = "red"
+	// ctx.fillRect(canvas.x/2 -50, canvas.height/2 -25, 100, 50)
+	// ctx.clearRect(180, 180, 40, 40);
+
+
+
+
+		// let myRegex = /k/ig;
+		// let myRegex = new RegExp(myVal.value, "ig");
+		// setToObj = () => {
+			
+
+			// let myRegex = /\W/ig;
+			// let myRegex = /\w/ig;
+			// let myRegex = /\S/ig;
+			// let myRegex = /j$/ig;
+			// let myRegex = /^j/ig;
+			// let myRegex = /^\d/ig;
+			// let str = myVal.value;
+			// console.log(str.replace(myRegex, "p"))
+		// console.log(myRegex.test(str))
+			// console.log(str.match(myRegex))
+
+		// }
+
+
+// JQUERY
+	// $(document).ready(function(){
+	// 	$("#btn").click(function(){
+	// 		let out = $("#myVal").val() * 5;
+	// 		$(".oin").html("hello");
+	// 	})
+	// })
+
+
+
+
+// // OOP: object oriented programming
+// class School {
+		
+// 		constructor(c, o, d){
+// 			this.color = c
+// 			this.noOfOffices = o;
+// 			this.noOfDepartment = d;
+// 			// this.color = c;
+// 			// this.noOfOffices = o;
+// 			// this.noOfDepartment = d;
+// 			// alert("hi")
+// 		}
+// 		displayColor(){
+// 			alert(this.color);
+// 		}
+// 		setDept(num){
+// 			this.dept = num
+// 		}
+// 		anotherFunc(){
+// 			staff = 3;
+// 		}
+// 	}
+// 	// let fuoye = new School("green", 4, 5);
+
+	
+// class SchoolsWithFaculties extends School{
+// 	// faculty = 4;
+// 	constructor(color, office, dept, f){
+// 		super(color, office, dept);
+// 		// this.office = office;
+// 		this.faculty = f;
+// 	}
+// 	setDept(anything){
+// 		alert()
+// 	}
+// }
+
+
+
+// let myClass = new SchoolsWithFaculties("violet", 3, 5, 9);
+
+// console.log(myClass.color)
+// console.log(School.office)
+// class AnotherClass extends SchoolsWithFaculties{
+// 	vc = "Gbadegesin"
+// }
+// let myObj = new AnotherClass;
+// var sqi = new SchoolsWithFaculties;
+// // alert(sqi.faculty)
+// sqi.setDept("bch")
+// console.log(sqi.dept)
+
+	// fuoye.displayColor();
+	// let lautech = new School("yellow", 8, 15);
+	// let sqi = new School("yellow", 8, 15);
+	
+	// sqi.displayColor();
+
+	// let lautech = {color:"yellow", noOfOfficese:"blue",
+	// 	displayColor(){
+	// 		alert(this.color);
+	// 	},
+	// 	setDept(num){
+	// 		this.dept = num
+	// 	},
+	// 	anotherFunc(){
+	// 		staff = 3;
+	// 	}}
+	// alert(this.color)
+	// class School {
+	// 	color = "blue";
+	// 	noOfOffices = 12;
+	// 	noOfFaculties = 4;
+	// 	constructor(){
+	// 		alert("hi")
+	// 	}
+	// 	displayColor(){
+	// 		alert(this.color);
+	// 	}
+	// 	setDept(num){
+	// 		this.dept = num
+	// 	}
+	// 	anotherFunc(){
+	// 		staff = 3;
+	// 	}
+	// }
+	// let lautech = new School;
+	// lautech.constructor();
+	// lautech.setDept(20);
+	// lautech.anotherFunc();
+	// console.log(lautech.staff)
+	// console.log(lautech.dept);
+	// let sqi = new School;
+	// lautech.color = "green"
+	// lautech.age = 35;
+	// lautech.displayColor();
+	// console.log(lautech)
+	// console.log(sqi)
+
+// HOF
+// function first(a){
+// 	return `${a} world`;
+// }
+// function second(val){
+// 	return "hello";
+// }
+// console.log("There are " + first(second()) + " Students in the class")
+// function first(a){
+// 	return a* 3;
+// }
+// function second(val){
+// 	return val*4;
+// }
+// console.log("There are " + first(second(3)) + " Students in the class")
+
+// map, filter, find: only used with array and they produce new array
+
+// Chaining
+
+// var myArray = [2, 3, 4, 5, 6, 7, 8, 3, 1, 8, 9]
+// console.log(myArray.filter( (val, i) => val<4 && i>4).map(res => `I have ${res} sheep`).find((value, i)=>i==1));
+
+// find
+// var myArray = [2, 3, 4, 5, 6, 7, 8, 3, 1, 8, 9]
+// let result = (myArray.find( (val, i) => val<4 && i>4));
+// console.log(result);
+
+// filter
+// var myArray = [2, 3, 4, 5, 6, 7, 8, 3, 1, 8, 9]
+// const anotherFunc = (val, i) => val<4 && i>4;
+// console.log(myArray.filter(anotherFunc));
+
+// var myArray = [2, 3, 4, 5, 6, 7, 8]
+// const anotherFunc = (val) => val<4 || i>4;
+// console.log(myArray.filter(anotherFunc));
+
+// var myArray = [2, 3, 4, 5, 6, 7, 8]
+// const anotherFunc = (val) => val<4;
+// console.log(myArray.filter(anotherFunc));
+
+// map
+
+// let arr = ["felix", "me", "james"];
+// console.log(arr.map((val, i, a) => `${val} is at position ${i}, ${a}`))
+// console.log(arr)
+
+// let arr = ["felix", "me", "james"];
+// const myFunc = (val, i, a) => `${val} is at position ${i}, ${a}`
+// console.log(arr.map(myFunc))
+// console.log(arr)
+
+// let arr = ["felix", "me", "james"];
+// const myFunc = (val) => `My name is ${val}`
+// console.log(arr.map(myFunc))
+// console.log(arr)
+// /
+// var newArray = arr.map(myFunc);
+// console.log(newArray);
+// let arr = ["felix", "me", "james"] 
+// for (let i = 0; i < arr.length; i++) {
+// 	const element = arr[i];
+// 	console.log(element);
+	
+// }
+
+// function multiplyByFive(num){
+// 	return num* 5
+// }
+// console.log("I have "+ multiplyByFive(4)+ " oranges")
+
+// Literal O[eration
+// var name = "felix"
+// var dept = "Software"
+// console.log(`Hello, my name is ${name}, I am in ${dept} Enginnering department`)
+
+// console.log("hello " + "\n" + "world")
+// console.log("hello \n world")
+// console.log('I\\\\m A Boy')
+
+// destruction
+
+// let obj = {name:"likz", dept:"CSC"}
+// let {name:myName, dept} = obj;
+// alert(name)
+
+
+// let name = obj.name;
+
+
+	// var arr = [2, 3, 4];
+	// let [, b, c] = arr;
+
+	// var newArray = [b, c]
+	// console.log(newArray);
+
+	// var arr = [2, 3, 4];
+	// let [a, b, c] = arr;
+
+	// var newArray = [b, a, c]
+	// console.log(newArray);
+
+
+// spread
+
+	// let obj = {name:"likz", dept:"CSC"}
+
+// 	let newObj = {...obj, school:"KWASU"}
+// 	console.log(newObj)
+
+
+	// let a = 5
+
+	// var arr = [2, 3, 4, 5,]
+
+	// let newArray = [...arr, 8, 9, 10]
+	// console.log(newArray)
+
+	// arr.push(6, 7, 8)
+	// console.log(arr)
+
+	// var newarr = [arr, 5, 6, 7]
+	// console.log(newarr)
+
+// var converted = [1,2,3,4,5]
+
+	
+
+
+	// var myObj = {name: "Felix", "dept": "Software", "school": "SQI", }
+
+	// var setToObj = localStorage.setItem("my", JSON.stringify(converted));
+	// 	sayName(){
+	// 		console.log(this.name);
+	// 	}
+	// };
+	// var obj = {};
+
+	// function setToObj(){
+		// obj[prop.value] = myVal.value;
+		// console.log(obj);
+		// console.log("hey")
+	// }
+
+
+
+	// second/\
+
+	// console.log(myObj["name of student"])
+	// console.log(myObj.name) ///// console.log(myObj["name"])
+
+	// function myFunc(e){
+		// e.target.innerHTML = "Welcome"
+		// console.log(e.target.innerHTML);
+	// }
+			// var a = [2,3,4,5];
+			// // console.log(a[1])
+
+			// for (var i = 0; i < a.length; i++){
+			// 	console.log(a[i])
+			// 	console.log("I have "+ a[i]+ " 0ranges")
+			// }
+
+			// for (var i = 5; i > 0; i--) {
+			// 	if (i == 2){
+			// 		break;
+			// 	}
+			// 	console.log(i);
+			// 
+			// for (var i = 2; i<= 10; i+=2 ) {
+			// 	console.log(i);
+			// }
+
+			// for (var i = 2; i<= 10; i+=2 ) {
+			// 	if (i==4 || i==8)
+			// 	console.log(i);
+			// }
+		
+
+	// var arr = [3, 4, 5, 6];
+	// console.log(arr.indexOf(3))
+	// arr.push(10, 12)
+	// console.log(arr)
+
+
+//  // parameterized function
+//  function sayName(a, b){
+// 		alert(a)
+// 		alert(b)
+// 	}
+	// function sayName(name){
+	// 	alert(name)
+	// }
+
+	// var a = 4;
+	// functions
+
+// function sayName () {
+// 	alert(result.value)
+// }
+
+	// var a = 3;
+	// function sayName(){
+	// 	a += 2;	
+	// 	alert(a)
+	// }
+	// function anotherButton(){
+	// 	alert(a)
+	// }
+
+	// var sayName = function () {
+	// 	alert("Kenny")
+	// }
+	
+	// var myFunc = function () {
+	// 	alert("Hi");
+	// }
+	// sayName();
+
+	// alert(hi)
+
+	// function sayName() {
+	// 	alert("Taiwo");
+	// }
+	
+	// var a = 4;
+	// var b = a==4?5:6;
+	// alert(b);
+
+	// var a = 4;
+	// var b;
+	// if (a==4){
+	// 	b=5
+	// } else {
+	// 	b=6;
+	// }
+	// alert(b);
+
+	// First assignment
+
+	// var val = 56;
+	// if(val < 0){
+	// 	alert("Out of Range")
+	// } else if(val <= 39){
+	// 	alert("Fail");
+	// } else if(val <=44){
+	// 	alert("Pass")
+	// } else if(val <=49){
+	//  	alert("Fair")
+	// } else if(val <=59){
+	// 	alert("Average")
+	// } else if(val <=69){
+	// 	alert("Good")
+	// } else if(val <=100){
+	// 	alert("Excellent")
+	// } else if(val > 100){
+	// 	alert("Out of Range")
+	// } else {
+	// 	alert("Not a Number")
+	// }
+
+	// logical operartion
+	// not, or, and
+// let 0 = false;
+// let 1 = true;
+// let or = +;
+// let and = *;
+
+// or 
+
+// true or true
+// 1+1=1;
+// true or false
+// 1+0=1;
+// false or true
+// 0+1=1;
+// false || false = false
+// 0+0=0
+
+	// var b = 8;
+	// var c = 4;
+	// var d;
+	// if ((b == 8 && c == 5)|| d){
+	// 	alert("Hi");
+	// }
+
+	// var b = 8;
+	// var c = 4;
+	// if (b == 8 && c == 4){
+	// 	alert("Hi");
+	// }
+
+	// var b = 8;
+	// var c = 4;
+	// if (b != 8 || c == 5){
+	// 	alert("Hi");
+	// }
+
+
+	// var  b = "hello";
+	// if (b != "hi"){
+	// 	alert("Hi")
+	// }
+
+	// var  b = 12;
+	// if (b != 12){
+	// 	alert("Hi")
+	// }
+
+
+	// comparison operation
+
+	// var a = 12;
+	// var b = 8;
+	// if (a == 7){
+	// 	alert("Hello");
+	// }	else if(b == 3){
+	// 	alert("hi")
+	// } else if(a ==9){
+	// 	alert("welcome")
+	// } else{
+	// 	alert("None is Correct")
+	// }
+
+	// var a =7;
+	// if (a == 5){
+	// 	alert("Hello");
+	// }	else {
+
+	// 	alert("hi")
+	// }
+
+	// var a = 10;
+	// if (undefined){
+	// 	alert("Hello");
+	// }	
+
+	// var a = false;
+	// if (true){
+	// 	alert("Hello");
+	// }
+
+	// var a = "taiwo";
+	// if (a == "Taiwo"){
+	// 	alert("Hello");
+	// }
+	// var a = "2";
+	// if (a === 2){
+	// 	alert("Hello");
+	// }
+
+	// assignment operators
+		// =	// var a = 5;
+			// alert(a);
+			// a = 4;
+			// alert(a);
+
+		// ++  	var a = 3;
+		// a++;
+		// a = a + 1;
+		// alert(a);
+
+		// var a = 3;
+		// a+=2;
+		// a = a + 2;
+		// alert(a);
+
+		// var name= "felix";
+		// var dept= "software"
+		// alert("My name is "+name + " I am in " + dept);
+		// var num = "hello"
+		// alert(num + 5 + 8)
+
+		// var num = "4";
+		// alert(num * 2);
+
+
+		// var num = "hello";
+		// num = num+ " welcome";
+		// alert(num);
+
+
+
+	// var a = 4;
+	// a++;  :postincrement
+	// ++a :preincrement
+	// alert(a);
+	// alert(++a + ++a)
+	// alert(++a)
+
+		// arithmetic operation
+		 // +, -, /, *, %, ++, --
+		 // operators, operations, operands;
+		 // var a = 2+3;
+		 // alert(a);
+
+	// var firstPerson = {name: "Taiwo", dept:"software", school:"SQI"};
+	// var secondPerson = {name: "Kenny", dept:"CSE", school:"LAUTECH"}
+	// console.log(firstPerson)
+	// alert(typeof(firstPerson));
+	// space.value = firstPerson
+
+	// var arrOfNumber = [2, 4, 4, 5, "taiwo", true]
+	// alert(typeof(arrOfNumber))
+	// alert(arrOfNumber)
+
+
+	// var num = "taiwo";
+	// alert(typeof(num));
+
+	// variable declaration
+	// camelcase
+	// var numberOfStudents = 4;
+	// alert(numberOfStudents * 3);
+	// alert(9);
+	// console.log(numberOfStudents)
+
+	// result.innerText = 10;
+	// result.innerHTML = "<div style='background-color: blue; margin 10px; color:yellow'>You are Welcome </br> sit down</div>";
+	// space.value = 18;
+
+	// document.write("How are you doing");
+
+	 // var myNumber = true;
+	 // alert(typeof(myNumber));
+	 // alert(myNumber);
+
+
+	//  function bulbOn(){
+    //     bulboff.innerHTML = "<div><img src='bulbOn.gif' alt='bulbOn' style='margin-top: 20px'></div>"
+    // } 
+
+</script>
+</body>
+</html>

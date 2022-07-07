@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="res">
+    <script>
+        // var name = "Victoria";
+        // alert(`My name is ${name}`);
+        // var function_name = function(a) {
+        //     alert(a * 3);
+        // }
+        // const myFunc = (a)=>{
+        //     alert(`hello`);
+        // }
+        // const myFunc = (a, b)=> `There are ${a*b} students in class`;
+        // alert(myFunc (6, 7));
+
+        // var arr = [1, 2, 3, 4];  
+        // var b = [5,6].concat(arr, [7,8]);
+        // console.log (b);
+// OR
+        // let a = [3, 4, 5, 6];
+        // let b = [1, 2];
+        // for (var i = 0; i < a.length; i++) {
+        //     b.push(a [i]);
+        // }
+        // b.push(7, 8);
+        // console.log(b);
+// OR
+        // let c = b.concat(a);
+        // c.push(7, 8);
+        // console.log(c);
+// OR
+        // using Spread operator.
+        // let a = [10, 12, 5, 6];
+        // console.log([1, 2, ...a, 7, 8]);
+
+        // let obj = {name: "Taiwo", dept: "software", age: "10"};
+        // let newObj = {school: "SQI", height: "1.7m", ...obj, age: "12,"};
+        // console.log(newObj);
+
+        //DESTRUCTURING
+        // let arr = [2, 3, 4, 5, 6];
+        // let [a, b,,, c] = arr;
+        // console.log(a * b * c);
+        // let obj = {name: "Taiwo", dept: "software", age: 10, greet(){console.log('hello')}};
+        // let {name:myName, age} = obj;
+        // console.log(`My name is ${myName}, I am ${age} years old`);
+
+        // HOF (Higher Order Function)
+        // let arr = [2, 3, 4, 5, 6];
+        // for (var i = 0; i < arr.length; i++) {
+        //     console.log (`I am ${arr[i] * 2} years old`);
+        // }
+        // arr.forEach(function(val){console.log(`I am ${val * 2} years old`)});
+
+        let arr = [2, 3, 4, 5, 6];
+        console.log (arr.map(myFunc));
+        function myFunc(val) {
+            return `I am ${val * 2} years old`;
+        }
+// OR
+            //MAP
+// let arr = [2, 3, 4, 5, 6]
+// let v = arr.map(val=>`I am ${val * 2} years old`);
+// console.log(v);
+
+// FILTER
+
+// let arr = [2, 3, 4, 5, 6, 0.2, 22, 1, 18];
+// let newArray = [];
+// for (var i = 0; i < arr.length; i++) {
+//     if (arr[i]>6) {
+//         newArray.push (arr[i]);
+//     }
+// }
+// console.log (newArray);
+
+// OR 
+// let arr = [2, 3, 4, 5, 6, 0.2, 22, 1, 18];
+// let newArray = arr.filter(val=>val > 6);
+// console.log(newArray);
+
+// OR 
+// let arr = [2, 3, 4, 5, 6, 0.2, 22, 1, 18];
+// let newArray = arr.filter((val, i)=>i<3 && val < 6-);
+// console.log(newArray);
+// OR
+// let arr = [1, 2, 3, 4, 5];
+// let b = arr.filter((val, i)=> val < 4);
+// console.log(b);
+
+
+    </script>
+<!--with let, once you've created a variable you wont be able to create another variable with the same variable name.
+ if variable is created inside the block it cant be used outside block.
+ constant cannot be changed.
+literal operator. 
+backtick can be used instead of using plus to concatenate-->
+</body>
+</html>

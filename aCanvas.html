@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+</head>
+<script>
+    var sx, sy, ex, ey;
+
+    function startPoint() {
+        sx = event.x;
+        sy = event.y;
+        // alert(`${event.x} ${event.y}`)
+    }
+    function endPoint() {
+        ex = event.x;
+        ey = event.y;
+        draw ();
+    }
+    function draw () {
+        var a = document.getElementById('canvas'); // To get the canvas;
+        var b = a.getContext('2d'); //To make the paint brush;
+        b.moveTo(sx,sy); // Origin of the cordinate of the canvas;
+        b.lineTo(ex,ey); // where I want it to stop;
+        b.stroke(); // The line of the drawing;
+    }
+</script>
+<body>
+    <canvas style="border: 3px solid blue; width: 1000px; height: 400px;" 
+    id="canvas" onmousedown="startPoint()" onmouseup="endPoint()">
+    </canvas>
+    <button onclick="draw()">Click Me</button>
+</body>
+</html>

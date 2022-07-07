@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="bootstrap-4.5.2/site/docs/4.5/assets/js/vendor/jquery.slim.min.js"></script>
+    <script src="bootstrap-4.5.2/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootstrap-4.5.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <script src="https://kit.fontawesome.com/5f5db04ddd.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"></script>
+    <title>Scientific Calculator</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-family:'PT Sans Narrow',Helvetica,Arial,sans-serif;
+        }
+        .content {
+            border: 3px solid black;
+            border-radius: 20px;
+            border-top-left-radius: 40px;
+            border-top-right-radius: 40px;
+            background-color: rgba(128, 128, 128, 0.425);
+            /* background-color: deepskyblue; */
+        }
+        input {
+            border:none; 
+            outline: none; 
+            width: 100%; 
+            height: 40px;
+        }
+        .button1 {
+            width: 63px;
+            height: 35px;
+            outline: none;
+        }
+        .button1:focus {
+            font-size: .95em;
+            background-color: black;
+            color: white;
+        }
+        .numberB {
+            width: 67px;
+            font-size: 1.1em;
+            outline: none;
+        }
+        .numberB:focus {
+            font-size: .95em;
+        }
+    </style>
+</head>
+<script>
+    var checkOn;
+    function onOff (e) {
+        if (checkOn) {
+            input.value = '';
+            input2.value = '';
+            checkOn = false;
+            e.target.innerHTML = 'ON';
+        }else {
+            input.value = '0';
+            input2.value = '';
+            checkOn = true;
+            e.target.innerHTML = 'OFF';
+        }
+    }
+    function myBtn (e) {
+       if (checkOn) {
+        if(input.value=='0'){
+            input.value=e
+        }else{
+            input.value += String(e);
+        }
+       }
+    }
+
+    function myOperator (m) {
+        if (checkOn) {
+            input.value += String(m);
+        }
+    }
+
+    function myDel(c) {
+      if (checkOn) {
+        if (c === 'AC') {
+            input.value = '0';
+            input2.value = '';
+        }else if (c === 'DEL') {
+            input.value = input.value.slice(0, -1);
+            input2.value = '';
+        }else {
+            input.value; 
+        }
+    }
+      }
+
+    function myCompute (res) {
+          var myVal;
+     if (checkOn) {
+        if (res == 'sin') {
+            input.value = res;
+            myVal = 'sin(';
+        } else if (res == 'cos') {
+            input.value = res;
+            myVal = 'cos(';
+        }else if (res == 'tan') {
+            input.value = res;
+            myVal = 'tan(';
+        }else if (res == 'log') {
+            input.value = res;
+            myVal = 'log(';
+        }else if (res == 'LN') {
+            input.value = res;
+            myVal = 'LN(';
+        }else if (res ==  'PI') {
+            input.value = res;
+            myVal = 'π';
+        }else if (res === 'sqrt') {
+            input.value = res;
+            myVal = '√(';
+        }else if (res == 'asin') {
+            input.value = res;
+            myVal = 'asin(';
+        }else if (res == 'acos') {
+            input.value = res;
+            myVal = 'acos(';
+        }else if (res == 'atan') {
+            input.value = res;
+            myVal = 'atan(';
+        }
+        input.value = myVal;  
+     }
+    }
+
+    function sin (num) {
+        return Math.sin(num*Math.PI/180);
+    }
+
+    function cos (num) {
+        return Math.cos(num*Math.PI/180);
+    }
+
+    function tan (num) {
+        return Math.tan(num*Math.PI/180);
+    }
+
+    function log (num) {
+        return Math.log10(num);
+    } 
+
+    function LN (num) {
+        return Math.log(num);
+    }
+
+    function PI (num) {
+        return Math.PI;
+    }  
+
+    function sqrt(num) {
+        return Math.sqrt(num);
+    }
+
+    function asin (num) {
+        return Math.asin(180/num*Math.PI);
+    }
+
+    function acos (num) {
+        return Math.acos(180/num*Math.PI);
+    }
+
+    function atan (num) {
+        return Math.atan(180/num*Math.PI);
+    }
+
+    function pow (num) {
+        return Math.pow(num, 2);
+    }
+
+    function plusMinus (p) {
+       if (checkOn) {
+        input.value = '-' + input.value;
+       }
+    }
+
+    function myAbs (o) {
+        if (checkOn) {
+            input2.value = Math.abs(input.value);
+        }
+    }
+
+    function mySquareroot () {
+        input2.value = Math.sqrt (input.value);
+    }    
+
+    function myAns (a) {
+        if (checkOn) {
+            input.value +=a;
+        }
+    }
+
+    function myEval () {
+       if (checkOn) {
+        input2.value = eval(input.value);
+       }
+    }
+</script>
+<body>
+    <main>
+        <div class="container-fluid">
+            <div class="row mt-3 ">
+                <div class="col-md-4">
+                    
+                </div>
+                <div class="col-md-3 shadow-lg content m-1">
+                    <div class="row p-1 mt-1">
+                        <div class="col-4">
+                            <p class="font-weight-bold h5 mt-2">VITE-AY. </p>
+                        </div>
+                        <div class="col-8">
+                            <p class="h6 text-right mt-2"><i>fx-830GTx</i></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-center mt-3">
+                            <p class="h6"><i>Scientific Calculator</i></p>
+                        </div>
+                    </div>
+                   <div class="container bg-white p-0" id="big"  style="height: 40px;">
+                        <input type="text"class="mt-1 p-1 bg-white" disabled id ="input">
+                    <input type="text"class="p-1 bg-white text-right font-weight-bold h5" disabled id ="input2">
+                   </div>
+                    <div class="row mt-4">
+                        <div class="col-12 p-0 mt-5 d-flex flex-row justify-content-between">
+                            <button class="btn ml-1 btn-sm btn-warning text-white button1 ">SHIFT</button> &nbsp;
+                            <button class="btn btn-sm btn-danger text-white button1">ALPHA</button> &nbsp; 
+                            <button onclick="myDel('AC')" class="btn btn-sm btn-light btn-outline-dark rounded-circle font-weight-bold h5 shadow w-25 h-100 button1">RESET</button> &nbsp;
+                            <button class="btn btn-sm btn-dark text-white button1">MODE</button> &nbsp;
+                            <button onclick="onOff(event)" class="btn mr-1 btn-sm btn-info button1" id="myOnOff"> &nbsp; ON &nbsp;</button>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-12 p-0 d-flex flex-row justify-content-between">
+                            <button class="btn ml-1 btn-sm btn-dark text-white button1 ">CALC</button> &nbsp;
+                            <button class="btn btn-sm btn-dark text-white button1">X <sup>-1</sup></button> &nbsp;
+                            <button class="btn btn-sm btn-dark text-white button1">X <sup>-2</sup></button> &nbsp;
+                            <button onclick="myCompute('')" class="btn btn-sm btn-dark text-white button1">X <sup>2</sup></button> &nbsp;
+                            <button onclick="myCompute('log')" class="btn btn-sm btn-dark text-white button1">log</button> &nbsp;
+                            <button onclick="myCompute('LN')" class="btn mr-1 btn-sm btn-dark text-white button1">&nbsp; Ln &nbsp;</button>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-12 p-0 d-flex flex-row justify-content-between">
+                            <button onclick="myAbs('Abs')" class="btn ml-1 btn-sm btn-dark text-white button1 ">Abs</button> &nbsp;
+                            <button onclick="myCompute('Math.sqrt')" class="btn btn-sm btn-dark text-white button1"><img src="images/icons8_Square_Root_28px.png" alt=""></button> &nbsp;
+                            <button class="btn btn-sm btn-dark text-white button1"><img src="images/icons8_Long_Arrow_Left_28px_1.png" alt=""></button> &nbsp;
+                            <button class="btn btn-sm btn-dark text-white button1"><img src="images/icons8_Right_Arrow_28px.png" alt=""></button> &nbsp;
+                            <button onclick="myCompute('PI')" class="btn btn-sm btn-dark text-white button1"><img src="images/icons8_Pi_28px.png" alt=""></button> &nbsp;
+                            <button onclick="myOperator('%')" class="btn mr-1 btn-sm btn-dark text-white button1">&nbsp;% &nbsp;</button>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-12 p-0 d-flex flex-row justify-content-between">
+                            <button onclick="myBtn('(')" class="btn ml-1 btn-sm btn-dark text-white button1 ">(</button> &nbsp;
+                            <button onclick="myBtn(')')" class="btn btn-sm btn-dark text-white button1">)</button> &nbsp;
+                            <button onclick="myCompute('sin')" class="btn btn-sm btn-dark text-white button1">SIN</button> &nbsp;
+                            <button onclick="myCompute('cos')" class="btn btn-sm btn-dark text-white button1">COS</button> &nbsp;
+                            <button onclick="myCompute('tan')" class="btn btn-sm btn-dark text-white button1">TAN</button> &nbsp;
+                            <button class="btn mr-1 btn-sm btn-dark text-white button1">&nbsp; M+ &nbsp;</button>
+                        </div>
+                    </div>
+                    <div class="row mt-1">
+                        <div class="col-12 p-0 d-flex flex-row justify-content-between">
+                            <button onclick="myCompute('asin')" class="btn ml-1 btn-sm btn-dark text-white button1 ">aSIN</button> &nbsp;
+                            <button onclick="myCompute('acos')" class="btn btn-sm btn-dark text-white button1">aCOS</button> &nbsp;
+                            <button onclick="myCompute('atan')" class="btn btn-sm btn-dark text-white button1">aTAN</button> &nbsp;
+                            <button class="btn btn-sm btn-dark text-white button1">X <sup>-x</sup></button> &nbsp;
+                            <button onclick="myCompute('log')" class="btn btn-sm btn-dark text-white button1">log <sub>x</sub></button> &nbsp;
+                            <button onclick="plusMinus('-')" class="btn mr-1 btn-sm btn-dark text-white button1">&nbsp;<img src="images/icons8_Plus_Minus_28px.png" alt=""> &nbsp;</button>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-12 p-0 d-flex flex-row justify-content-between">
+                            <button onclick="myBtn(7)" class="btn ml-1 btn-sm btn-dark text-white numberB ">7</button> &nbsp;
+                            <button onclick="myBtn(8)" class="btn btn-sm btn-dark text-white numberB">8</button> &nbsp;
+                            <button onclick="myBtn(9)" class="btn btn-sm btn-dark text-white numberB">9</button> &nbsp;
+                            <button onclick="myDel('DEL')" class="btn btn-sm btn-light text-dark numberB">DEL</button> &nbsp;
+                            <button onclick="myDel('AC')" class="btn btn-sm btn-light text-dark numberB">AC</button> &nbsp;
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-12 p-0 d-flex flex-row justify-content-between">
+                            <button onclick="myBtn(4)" class="btn ml-1 btn-sm btn-dark text-white numberB ">4</button> &nbsp;
+                            <button onclick="myBtn(5)" class="btn btn-sm btn-dark text-white numberB">5</button> &nbsp;
+                            <button onclick="myBtn(6)" class="btn btn-sm btn-dark text-white numberB">6</button> &nbsp;
+                            <button onclick="myOperator('*')" class="btn btn-sm btn-info text-white numberB">X</button> &nbsp;
+                            <button onclick="myOperator('/')" class="btn btn-sm btn-info text-white numberB"><img src="images/icons8_Divide_28px.png" alt=""></button> &nbsp;
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-12 p-0 d-flex flex-row justify-content-between">
+                            <button onclick="myBtn(1)" class="btn ml-1 btn-sm btn-dark text-white numberB ">1</button> &nbsp;
+                            <button onclick="myBtn(2)" class="btn btn-sm btn-dark text-white numberB">2</button> &nbsp;
+                            <button onclick="myBtn(3)" class="btn btn-sm btn-dark text-white numberB">3</button> &nbsp;
+                            <button onclick="myOperator('+')" class="btn btn-sm btn-info text-white numberB"><img src="images/icons8_Plus_Math_28px.png" alt=""></button> &nbsp;
+                            <button onclick="myOperator('-')" class="btn btn-sm btn-info text-white numberB"><img src="images/icons8_Subtract_28px.png" alt=""></button> &nbsp;
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-12 p-0 d-flex flex-row justify-content-between pb-1">
+                            <button onclick="myBtn(0)" class="btn ml-1 btn-sm btn-dark text-white numberB ">0</button> &nbsp;
+                            <button onclick="myBtn('.')" class="btn btn-sm btn-dark text-white numberB">.</button> &nbsp;
+                            <button class="btn btn-sm btn-dark text-white numberB"><sub>x</sub>10 <sup>x</sup></button> &nbsp;
+                            <button onclick="myAns('Ans')" class="btn btn-sm btn-info text-white numberB">Ans</button> &nbsp;
+                            <button onclick="myEval('=')" class="btn btn-sm btn-info text-white numberB"><img src="images/icons8_Equal_Sign_28px.png" alt=""></button> &nbsp;
+                        </div>
+                    </div>
+                <div class="col-md-4">
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

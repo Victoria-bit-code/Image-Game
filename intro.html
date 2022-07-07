@@ -1,0 +1,98 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- <button onclick="myeraser()">eraser</button> -->
+<!-- <button onclick="myFunc(event)">BTN</button> -->
+<body> <canvas style="border: 1px solid; width: 600; height:400; background-color: white; " id="ca"></canvas>
+    <script>
+        ca.width = 400;
+        ca.height = 400;
+   let ctx= ca.getContext ("2d");
+   let myX=150;
+   let myY =150;
+   let myRadius = 15;
+   let newLocation = myX;
+   const drawCircle =()=>{
+    ctx.clearRect(0,0,ca.width, ca.height);
+    requestAnimationFrame(drawCircle);
+    ctx.arc(myX,myY,15,0,Math.PI*2);
+    ctx.moveTo(myX+ myRadius,150);
+    ctx.stroke();
+    myX+=20;
+   }
+
+//    for (let i = 0; i <10; i++) {
+//     ctx.arc(myX,myY,15,0,Math.PI*2);
+//     ctx.moveTo(myX+ myRadius,150);
+//     ctx.stroke();
+//     myX+=20;
+//    ctx.moveTo(150,150)
+//    ctx.arc(150,150,15,0,Math.PI*2);
+//    ctx.moveTo(170+15,150)
+//    ctx.arc(170,150,15,0,Math.PI*2);
+//    ctx.stroke();
+//    let startX, startY, endX, endY;
+//    let erase;
+//    ca.addEventListener('mousedown',event=>{
+//         startX = event.x-8;
+//         startY = event.y-8;
+//    });
+//    ca.addEventListener('mouseup',event=>{
+//         endX = event.x-8;
+//         endY = event.y-8;
+//         if(erase){
+//             ctx.clearRect(startX,startY, endX-startX, endY-startY)
+//             erase=false;
+//         }else{
+//         ctx.moveTo(startX, startY);
+//         ctx.lineTo(endX,endY);
+//         ctx.stroke();
+//         }
+//         console.log(startX, startY, endX, endY);
+//    });
+//    function myeraser(){
+//        erase = true;
+//    }
+//    ca.addEventListener('mousedown',event=>{
+//         startX = event.x;
+//         startY = event.y;
+//    });
+//    ca.addEventListener('moveup',event=>{
+//         endX = event.x;
+//         endY = event.y;
+//         ctx.moveTo(startX, startY);
+//         ctx.lineTo(endX,endY);
+//         ctx.stroke();
+//         console.log(startX, startY, endX, endY);
+//    });
+// ctx.fillStyle='red';
+// ctx.fillRect(30,30,50,50);
+// ctx.arc(40,40,30,Math.PI/2,Math.PI*2,true);
+// ctx.stroke();
+// ctx.stokeRect(30,30,50,50);
+// const myFunc=e=>{
+//     alert(e.target);
+//     // console.log?(e.x, e.y);
+//     // e.target.innerHTML = "welcome"
+// }
+
+//    ctx.moveTo(50,50)
+//    ctx.lineTo(100,100)
+//    ctx.lineTo(200,50)
+//    ctx.lineTo(50,50)
+//    ctx.stroke();
+//    ctx.moveTo(50,50)
+//    ctx.lineTo(50,70)
+//    ctx.moveTo(50,90)
+//    ctx.lineTo(50,50)
+//    ctx.lineTo(50,110)
+//    ctx.moveTo(50,130)
+//    ctx.lineTo(50,150)
+//    ctx.stroke();
+    </script>
+</body>
+</html>

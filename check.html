@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="bootstrap-4.5.2/site/docs/4.5/assets/js/vendor/jquery.slim.min.js"></script>
+    <script src="bootstrap-4.5.2/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootstrap-4.5.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <style>
+        body {
+            font-family: 'PT Sans Narrow',Helvetica,Arial,sans-serif;
+            background-color: darkblue;
+            box-sizing: border-box;
+            margin: 0;
+        }
+        .h1  {
+            font-size: 4.5em;
+            text-shadow: 1px 3px 3px rgb(200,35,51);
+            color: white;
+        }
+        .button {
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            border: 4px double blue;
+            color: rgb(200,35,51);
+            font-size: 5em;
+            padding: 0%;
+            margin: 0%;
+            border-radius: 20px;
+
+        }
+        .board {
+            height: 85vh;
+            /* border: 5px ridge blue; */
+        }
+        .pp1 {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .pp2 {
+            color: darkblue;
+            font-size: 1.5em;
+            font-family: 600;
+        }
+        .myInp {
+            height: 30px;
+            outline: none;
+        }
+        #demo {
+            font-size: 1.5em;
+            color: rgb(200,35,51);
+            line-height: 28px;
+        }
+        .anotherInp {
+            width: 50px;
+            height: 30px;
+            outline: none;
+        }
+        .winningMessage {
+            font-size: 1.5em;
+            color: rgb(200,35,51);
+            line-height: 28px;
+        }
+    </style>
+</head>
+<script>
+    var gameBoard;
+    var start;
+    function isIndex (e) {
+        if (gameBoard && e.target.innerHTML === '') {
+            gameBoard = false;
+            e.target.innerHTML = res2.value;
+            gameState();
+            winningMessage.innerHTML = '';
+        }else if (e.target.innerHTML === ''){
+            gameBoard = true;
+            e.target.innerHTML = res.value;
+            gameState();
+            // winningMessage.innerHTML = '';
+        }
+    }
+    function play () {
+        if (input.value === '' && input2.value === '' && res.value === '' && res2.value === '') {
+            warningText.innerHTML = "You need to input your data before you can proceed!";
+            // btn0.disabled = true;
+            // btn1.disabled = true;
+            // btn2.disabled = true;
+            // btn3.disabled = true;
+            // btn4.disabled = true;
+            // btn5.disabled = true;
+            // btn6.disabled = true;
+            // btn7.disabled = true;
+            // btn8.disabled = true;
+
+        }else if (input.value !== '' && input2.value !== '' && res.value !== '' && res2.value !== '' ) {
+            demo.innerHTML = input.value + ',' + ' ' + 'enjoy the game with' + ' ' + input2.value + '<br/> Do have a nice time!'; 
+            warningText.innerHTML = '';
+            input.disabled = true;
+            input2.disabled = true;
+            res.disabled = true;
+            res2.disabled = true; 
+        }
+    }
+    function gameState () {
+        if (btn0.innerHTML === res.value  && btn1.innerHTML === res.value && btn2.innerHTML === res.value) {
+            score.value++;
+            winningMessage.innerHTML = res.value + "'s" + ' ' + 'win';
+        }else if (btn3.innerHTML === res.value && btn4.innerHTML === res.value && btn5.innerHTML === res.value) {
+            score.value++;
+            winningMessage.innerHTML = res.value + "'s" + ' ' + 'win';
+        }else if (btn6.innerHTML === res.value && btn7.innerHTML === res.value && btn8.innerHTML === res.value) {
+            score.value++;
+            winningMessage.innerHTML = res.value + "'s" + ' ' + 'win';
+        }else if (btn0.innerHTML === res.value && btn3.innerHTML === res.value && btn6.innerHTML === res.value) {
+            score.value++;
+            winningMessage.innerHTML = res.value + "'s" + ' ' + 'win';
+        }else if (btn1.innerHTML === res.value && btn4.innerHTML === res.value && btn7.innerHTML === res.value) {
+            score.value++;
+            winningMessage.innerHTML = res.value + "'s" + ' ' + 'win';
+        }else if (btn2.innerHTML === res.value && btn5.innerHTML === res.value && btn8.innerHTML === res.value) {
+            score.value++;
+            winningMessage.innerHTML = res.value + "'s" + ' ' + 'win';
+        }else if (btn0.innerHTML === res.value && btn4.innerHTML === res.value && btn8.innerHTML === res.value) {
+            score.value++;
+            winningMessage.innerHTML = res.value + "'s" + ' ' + 'win';
+        }else if (btn2.innerHTML === res.value && btn4.innerHTML === res.value && btn6.innerHTML === res.value) {
+            score.vale++;
+            winningMessage.innerHTML = res.value + "'s" + ' ' + 'win';
+        }else if (btn0.innerHTML === res2.value && btn1.innerHTML === res2.value && btn2.innerHTML === res2.value) {
+            score2.value++;
+            winningMessage.innerHTML = res2.value + "'s" + ' ' + 'win';
+        }else if (btn3.innerHTML === res2.value && btn4.innerHTML === res2.value && btn5.innerHTML === res2.value) {
+            score2.value++;
+            winningMessage.innerHTML = res2.value + "'s" + ' ' + 'win';
+        }else if (btn6.innerHTML === res2.value && btn7.innerHTML === res2.value && btn8.innerHTML === res2.value) {
+            score2.value++;
+            winningMessage.innerHTML = res2.value + "'s" + ' ' + 'win';
+        }else if (btn0.innerHTML === res2.value && btn3.innerHTML === res2.value && btn6.innerHTML === res2.value) {
+            score2.value++;
+            winningMessage.innerHTML = res2.value + "'s" + ' ' + 'win';
+        }else if (btn1.innerHTML === res2.value && btn4.innerHTML === res2.value && btn7.innerHTML === res2.value) {
+            score2.value++;
+            winningMessage.innerHTML = res2.value + "'s" + ' ' + 'win';
+        }else if (btn2.innerHTML === res2.value && btn5.innerHTML === res2.value && btn8.innerHTML === res2.value) {
+            score2.value++;
+            winningMessage.innerHTML = res2.value + "'s" + ' ' + 'win';
+        }else if (btn0.innerHTML === res2.value && btn4.innerHTML === res2.value && btn8.innerHTML === res2.value) {
+            score2.value++;
+            winningMessage.innerHTML = res2.value + "'s" + ' ' + 'win';
+        }else if (btn2.innerHTML === res2.value && btn4.innerHTML === res2.value && btn6.innerHTML === res2.value) {
+            score2.value++;
+            winningMessage.innerHTML = res2.value + "'s" + ' ' + 'win';
+        } else if (btn0.innerHTML && btn1.innerHTML && btn2.innerHTML && btn3.innerHTML && btn4.innerHTML && btn5.innerHTML && btn6.innerHTML && btn7.innerHTML && btn8.innerHTML !== '') {
+            winningMessage.innerHTML = 'This is a draw game';
+        } 
+    }
+    function rePlay () {
+        btn0.innerHTML = '';
+        btn1.innerHTML = '';
+        btn2.innerHTML = '';
+        btn3.innerHTML = '';
+        btn4.innerHTML = '';
+        btn5.innerHTML = '';
+        btn6.innerHTML = '';
+        btn7.innerHTML = '';
+        btn8.innerHTML = '';
+        winningMessage.innerHTML = '';
+    }
+    // function stop () {
+    //     if (winningMessage.innerHTML === res2.value + "'s" + ' ' + 'win' || winningMessage === res.value + "'s" + ' ' + 'win' || winningMessage === 'This is a draw game') {
+    //    e.target.innerHTML = '';
+    //     }
+    // }
+</script>
+<body>  
+    <div class="container-fluid text-center">
+        <div class="row">
+            <div class="col-12 border-bottom">
+                <h1 class="h1 text-center">
+                    A Tic-Tac-Toe Game.
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 text-white border-right">
+                <h4 class="pt-4">Welcome to Tic-tac-Toe game, please enter your name in the box below to start your game.</h4>
+                <p class="pt-3 text-left">
+                    <span class="pp1">First Player</span><input type="text" class="w-75 rounded form-control" placeholder="Input your name" id="input" required>
+                </p>
+                <p class="pt-2 text-left">
+                    <span class="pp1">Second Player</span><input type="text" class="w-75 rounded form-control" placeholder="Input your name" id="input2" required>
+                </p>
+                <p class="pp1 text-left">
+                    Please choose who plays first:
+                    <input type="text" name="game" id="res" class="anotherInp">
+                    <input type="text" name="game" id="res2" class="anotherInp">
+                </p>
+                <button onclick="play()" class="w-25 btn btn-danger rounded mt-3"><span class="h5">Play</span></button>
+                <div id="warningText" class="pp1"></div>
+                </div>
+            <div class="col-md-6 bg-light">
+               <div class="container pt-1">
+                <div class="board" id="board">
+                    <div id="demo"></div>
+                    <p class="pp2">
+                        Player's Score:
+                         <input type="text" class="w-25 myInp" disabled value="0" id="score">
+                         <input type="text" class="w-25 myInp" disabled value= "0" id="score2">
+                    </p>
+                    <div class="row">
+                        <div class="col-3"></div>
+                        <div class="col-2 btn btn-lg button p-0" id="btn0" onclick="isIndex(event)" onclick="gameState()" onclick="stop()"></div>
+                        <div class="col-2 btn btn-lg button" id="btn1" onclick="isIndex(event)" onclick="gameState()" onclick="stop()"></div>
+                        <div class="col-2 btn btn-lg button" id="btn2" onclick="isIndex(event)" onclick="gameState()" onclick="stop()"></div>
+                        <div class="col-3"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3"></div>
+                        <div class="col-2 btn btn-lg button" id="btn3" onclick="isIndex(event)" onclick="gamestate()" onclick="stop()"></div>
+                        <div class="col-2 btn btn-lg button" id="btn4" onclick="isIndex(event)" onclick="gamestate()" onclick="stop()"></div>
+                        <div class="col-2 btn btn-lg button" id="btn5" onclick="isIndex(event)" onclick="gamestate()" onclick="stop()"></div>
+                        <div class="col-3"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3"></div>
+                        <div class="col-2 btn btn-lg button" id="btn6" onclick="isIndex(event)" onclick="gamestate()" onclick="stop()"></div>
+                        <div class="col-2 btn btn-lg button" id="btn7" onclick="isIndex(event)" onclick="gamestate()" onclick="stop()"></div>
+                        <div class="col-2 btn btn-lg button" id="btn8" onclick="isIndex(event)" onclick="gamestate()" onclick="stop()"></div>
+                        <div class="col-3"></div>
+                    </div>
+                    <div class="winningMessage" id="winningMessage"></div>
+                    <button id="restartButton" class="rounded btn btn-danger w-25" onclick="rePlay()">Replay</button> &nbsp; &nbsp; &nbsp; &nbsp;
+                    <button id="restartButton" class="rounded btn btn-danger w-25">Quit</button> 
+
+                </div>
+               </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

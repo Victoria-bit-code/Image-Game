@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="bootstrap-4.5.2/site/docs/4.5/assets/js/vendor/jquery.slim.min.js"></script>
+    <script src="bootstrap-4.5.2/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootstrap-4.5.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <script src="https://kit.fontawesome.com/5f5db04ddd.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"></script>
+    <title>CALCULATION TABLE</title>
+    <style>
+      
+    </style>
+</head>
+<script>
+   function tables () {
+    var val = selects.value;
+  if (val == '1') {
+    for (var a = 1; a <= res.value; a++) {
+        tr1.innerHTML += "<td></td>";
+        for (var b = 0; b <= res2.value; b++) {
+            tr1.innerHTML += a + "*" + b + "=" + (a * b) + "<br>";
+            tr2.innerHTML = '';
+            tr3.innerHTML = '';
+            tr4.innerHTML = '';
+        }
+    }
+  }else if (val == '2') {
+    for (var a = 1; a <= res.value; a++) {
+        tr2.innerHTML += "<td></td>"
+        for (var b = 0; b <= res2.value; b++) {
+            tr2.innerHTML +=  a + "+" + b + "=" + (a + b) + "<br>";
+            tr1.innerHTML = '';
+            tr3.innerHTML = '';
+            tr4.innerHTML = '';
+
+        }
+    }
+  }else if (val == '3') {
+    for (var a = 1; a <= res.value; a++) {
+        tr3.innerHTML += "<td></td>"
+        for (var b = 0; b <= res2.value; b++) {
+            tr3.innerHTML +=  a + "-" + b + "=" + (a - b) + "<br>";
+            tr1.innerHTML = '';
+            tr2.innerHTML = '';
+            tr4.innerHTML = '';
+
+        }
+    }
+  }else if (val == '4') {
+    for (var a = 1; a <= res.value; a++) {
+        tr4.innerHTML += "<td></td>"
+        for (var b = 0; b <= res2.value; b++) {
+            tr4.innerHTML +=  a + "/" + b + "=" + (a / b).toPrecision(3) + "<br>";
+            tr1.innerHTML = '';
+            tr2.innerHTML = '';
+            tr3.innerHTML = '';
+        }
+    }
+  }
+}
+</script>
+<body>
+    <div><table border = 1> <tr id= "tr1"></tr> </table></div>
+    <div><table border = 1> <tr id= "tr2"></tr> </table></div>
+    <div><table border = 1> <tr id= "tr3"></tr> </table></div>
+    <div><table border = 1> <tr id= "tr4"></tr> </table></div>
+    <select name="Selects" id="selects">
+        <option value="0">Select Operator</option>
+        <option value="1">Multiplication</option>
+        <option value="2">Addition</option>
+        <option value="3">Substraction</option>
+        <option value="4">Divison</option>
+    </select>
+     <input type="text" id="res" placeholder="Column">
+     <input type="text" id="res2" placeholder="Row">
+     <button onclick="tables()">Click Me</button>
+</body>
+</html> 

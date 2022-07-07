@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="bootstrap-4.5.2/dist/css/bootstrap.min.css">
+    <title>ALARM</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mt-4">
+                <table class="table">
+                    <tr>
+                        <th><input type="number" class="form-control rounded-pill border border-danger" id="hours"></th>
+                        <th><input type="number" class="form-control rounded-pill border border-primary" id="mins"></th>
+                        <th><input type="number" class="form-control rounded-pill border border-warning" id="secs"></th>
+                    </tr>
+                    <tr><h5>Set Time:</h5></tr>
+                    <tr>
+                        <th><input type="number" class="form-control rounded-pill border border-danger" placeholder="Hours (h)" id="hours2"></th>
+                        <th><input type="number" class="form-control rounded-pill border border-primary" placeholder="Minutes (m)" id="mins2"></th>
+                        <th><input type="number" class="form-control rounded-pill border border-warning" placeholder="Seconds (s)" id="secs2"></th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        // let myDate = new Date();
+        // hours.innerHTML = myDate.getHours();
+        // mins.innerHTML = myDate.getMinutes();
+        // secs.innerHTML = myDate.getMilliseconds();
+        // console.log(myDate.getMilliseconds());
+        var name = prompt('Welcome to our page, please enter your name below before you continue');
+        if(name = '') {
+            name = prompt('Welcome to our page, please enter your name below before you continue');
+        }else {
+            alert(`Welcome ${name}`);
+        }
+    </script>
+</body>
+</html>

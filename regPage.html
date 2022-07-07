@@ -1,0 +1,136 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="bootstrap-4.5.2/dist/css/bootstrap.min.css">
+            <title>Registration Page</title>
+        </head>
+        <style>
+            body {
+                    background-color: rgb(212,236,213);
+                    /* background-color: rgb(94, 180, 97); */
+                }
+                .para {
+                font-size: 15px;
+                font-weight: bold;
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande';
+                font-style: italic;
+            }
+            .myBorder {
+                border: none;
+                border-bottom: 3px solid rgb(55,108,58);;
+                background: none;
+            }
+        </style>
+        <body onload="tableList()">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4 card rounded shadow p-0" style="margin-top: 5%;">
+                        <table class="bg-light">
+                            <tr>
+                                <th style="background-color: rgb(55,108,58); text-align: right;">
+                                <small class="text-light">Already have an acount?</small>  &nbsp;
+                            <button onclick="signIn()" class="rounded border border-light  mb-1 mr-2 mt-2 bg-success text-white">
+                                <img src="images/loginIcon.png" alt="" width="20">
+                            Sign In
+                        </button></th></tr>
+                        <tr><th class="bg-light">
+                        <p class="para mt-3 mb-0">First Name:</p></th></tr>
+                        <tr><th><input type="text" class="form-control myBorder bg-light" id="fn" ></th></tr>
+
+                        <tr><th class="bg-light">
+                            <p class="para mt-1 mb-0">Last Name:</p></th></tr>
+                            <tr><th><input type="text" class="form-control myBorder bg-light" id="ln" ></th></tr>
+
+                            <tr><th class="bg-light">
+                                <p class="para mt-1 mb-0">E-mail:</p></th></tr>
+                                <tr><th><input type="email" class="form-control myBorder bg-light" id="em"></th></tr>
+
+                                <tr><th class="bg-light">
+                                    <p class="para mt-1 mb-0">Phone Number:</p></th></tr>
+                                    <tr><th><input type="number" class="form-control myBorder bg-light" id="pn"></th></tr>
+
+                                <tr><th class="bg-light">
+                                    <p class="para mt-1 mb-0">Password:</p></th></tr>
+                                    <tr><th><input type="password" class="form-control myBorder bg-light" id="pass">
+                                    <input type="checkbox" id="cb" onclick="check()" value="on"><small> Visibility</small></th></tr>
+                                    <tr><th class="bg-light">
+
+                                        <p class="para mb-0">confirm password:</p></th></tr>
+                                        <tr><th><input type="password" class="form-control myBorder bg-light" id="cp"></th></tr>
+
+                                        <tr><th class="bg-light">
+                                            <button onclick="setTable()" class="rounded-pill w-100 mt-3 bg-success border-light text-light h5 p-1 mb-2" id="reg">Register</button>
+                                        </th></tr>
+                        </table>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+            </div>
+        <script>
+            if (JSON.parse(localStorage.getItem('myList')) != null) {
+                store = JSON.parse(localStorage.getItem('myList'));
+            }else {
+                store = [];
+            }
+        
+            setTable = () => {
+                var regexForPhone = /^[\d]{11}$/;
+                    if (regexForPhone.test(pn.value)== false) {
+                    pn.type = 'text';
+                    pn.value = 'Must be 11';
+                    pn.className = "form-control is-invalid";
+                    // alert(`Reload the page and start the registration again`);
+                }
+
+                    var regexForEmail = /^[a-z]+[@][\w]+[.][a-z]+([.][a-z]+)?$/;
+                    if (regexForEmail.test(em.value)== false) {
+                    em.value = 'Charater @ must be included';
+                    em.className = "form-control is-invalid";
+                    // alert(`Reload the page and start the registration again`);
+                } 
+                    
+                    var regexForpassword = /^([A-Z][a-z]+)$/;
+                    if (regexForpassword.test(pass.value) == false) {
+                    pass.type = 'text';
+                    pass.value = 'Must have a capital letter, a character and max of 10';
+                    pass.className = 'form-control is-invalid';
+                    // alert(`Reload the page and start the registration again`);
+                }  
+                if (regexForpassword.test(pass.value) != cp.value) {
+                    cp.type = 'password';
+                    // cp.value = 'Repeat the same password';
+                    cp.className = 'form-control is-invalid';
+                    // alert(`Reload the page and start the registration again`);
+                }     
+
+                if (fn.value!='' && ln.value!='' && em.value!='' && pn.value!='' &&
+                    pass.value == cp.value){
+                alert('Your registration is successful');
+                store.push({'firstName': fn.value,'lastName': ln.value,'email': em.value,
+                            'phoneNumber': pn.value,'password':pass.value, 'confrimPassword':cp.value});
+                            window.location = 'loginAss.html';
+                            tableList();
+            }
+            }
+            check = () => {
+                if(cb.value) {
+                    pass.type = 'text';
+                }else if(cb.value) {
+                    pass.type = 'password';
+                }
+            }
+             tableList = () => {
+                set = JSON.stringify(store);
+                localStorage.setItem('myList', set);
+            }
+            signIn = () => {
+                window.location = 'loginAss.html';
+            }
+            
+        </script>
+        </body>
+        </html>

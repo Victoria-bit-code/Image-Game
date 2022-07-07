@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="bootstrap-4.5.2/dist/css/bootstrap.min.css">
+
+    <title>Document</title>
+  
+</head>
+<body>
+    <canvas width="1000px" height="500px" style="border: 2px solid black;" id="canvas"></canvas>
+    <br>
+    <button class="rounded" onclick="drawRect()">Rectangle</button>
+    <button class="rounded" onclick="drawCircle()">Circle</button>
+    <input type="color" id="color">
+    <script>
+        var a, b, c, d;
+        var sx,sy,ex,ey
+        drawRect = () => {
+            var cv = document.getElementById('canvas')
+            cv.addEventListener("mousedown", down)
+            cv.addEventListener("mouseup", up)
+        }
+        down = () => {
+            sx = event.x
+            sy = event.y
+        }
+        up = () => {
+            ex = event.x
+            ey = event.y
+           // alert(c)
+            draw();
+        }
+        draw = () => {
+            // alert(a,b);
+            var cv = document.getElementById('canvas')
+            var c = cv.getContext('2d');
+            c.strokeStyle = color.value;
+           // c.beginPath();
+            c.moveTo(sx,sy);
+            c.lineTo(ex,sy)
+            c.lineTo(ex,ey);
+            c.lineTo(sx,ey);
+            c.lineTo(sx,sy)
+            c.stroke();
+        }
+
+
+        
+        drawCircle = () => {
+            var cir = document.getElementById('canvas')
+            cir.addEventListener('mousedown', cirDown);
+            cir.addEventListener('mouseup', cirUp);
+        }
+        cirDown = () => {
+            sx = event.x
+            sy = event.y
+        }
+        cirUp = () => {
+            ex = event.x
+            ey = event.y
+            drawCir()
+        }
+        drawCir = () => {
+            var cir = document.getElementById('canvas')
+            var d = cv.getContext('2d');
+            d.strokeStyle = color.value;
+            // d.beginPath(sx,sy);
+            d.arc(sx,sy,100,100,20,Math.PI)
+        }
+        
+        </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgba(129, 129, 244, 0.462);
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+    </style>
+</head>
+<body>
+    <h2 class="text-center pt-3 text-danger">
+        <i>CHECK YOUR WEATHER NOW!</i>
+    </h2>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-10">
+                <input type="text" id = "mySearch" class="form-control float-center">
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-outline-danger " onclick="weather()">Search</button>
+            </div>
+        </div>
+    </div>
+    <div class="container w-75">
+        <div class="row">
+            <div class="col-md-9">
+                <p class="h3 mt-5 pt-5">Country</p>
+                <p id="count" class="text-danger"></p>
+            </div>
+            <div class="col-md-3">
+                <p class="h3 mt-5 pt-5">Temperature</p>
+                <p id="temp" class="text-danger"></p>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <p class="h3 mt-5 pt-5">Cloud</p>
+                    <p id="cloud" class="text-danger"></p>
+                </div>
+                <!-- <div class="col-md-3">
+                    <p class="h3 mt-5 pt-5">Temperature</p>
+                    <p id="temp" class="text-danger"></p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <p class="h3 mt-5 pt-5">Time Zone</p>
+                <p id="time" class="text-danger"></p>
+            </div>
+        </div>
+    </div> -->
+</body>
+<script src="wheather.js"></script>
+</html>

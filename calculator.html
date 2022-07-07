@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="bootstrap-4.5.2/site/docs/4.5/assets/js/vendor/jquery.slim.min.js"></script>
+    <script src="bootstrap-4.5.2/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootstrap-4.5.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <script src="https://kit.fontawesome.com/5f5db04ddd.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"></script>
+    <link rel="icon" type="html/image/png" href="icon.png">
+    <title>Calculator</title>
+    <style>
+        * {
+            padding: 0%;
+            margin: 0%  ;
+        }
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        button {
+            width: 18%;
+        }
+        .Container {
+            height: 60vh;
+            border: 2px ridge rgb(0,40,50);
+        }
+    </style>
+</head>
+<script>
+    function myNumbers(cal) {
+         input.value +=cal;
+    }
+
+    function myOperator(e) {
+        input.value += e;
+        // if (e === '+') {
+        //     input.value += e;
+        // }else if (e === '-') {
+        //     input. value += e;
+        // }else if (e === '/') {
+        //     input.value += e;
+        // }else if (e === '*') {
+        //     input.value += e;
+        // }else {
+        //     input.value
+        // }
+    }   
+
+    function myAssignment() {
+            input.value = eval(input.value);
+    }
+
+    function clearAll(c) {
+        if (c === 'CE') {
+            input.value = '';
+        }else if (c === 'C') {
+            input.value = '';
+        }else {
+            input.value 
+        }
+    }
+
+    function del(one) {
+        input.value = input.value.slice(0, -1);
+    }
+</script>
+<body>
+    <div class="row ml-1">
+        <div class="col-md-3">
+            <div class="Container shadow mx-auto rounded text-center">
+                <input type="text"  class="border-none border-top border-right border-left w-100 h-25 bg-light text-right h1" id="input" placeholder="0" disabled>
+                <button onclick="clearAll('CE')" class="btn btn-light btn-outline-secondary btn-lg font-weight-bolder mt-2 text-center" id="btn">CE</button>
+                <button onclick="clearAll('C')" class="btn btn-light btn-outline-secondary btn-lg font-weight-bolder mt-2 ml-3">C</button>
+                <button onclick="del('x')" class="btn btn-light btn-outline-secondary btn-lg font-weight-bolder mt-2 ml-3"><img src="images/icons8_Close_Window_25px.png" alt=""></button>
+                <button onclick="myOperator('/')" class="btn btn-light btn-outline-secondary btn-lg font-weight-bolder mt-2 ml-3"><img src="images/icons8_Divide_25px.png" alt=""></button>
+        
+        
+                <button onclick="myNumbers(7)" class="btn btn-light btn-outline-secondary btn-lg font-weight-bolder mt-2">7</button>
+                <button onclick="myNumbers(8)" class="btn btn-light btn-outline-secondary btn-lg font-weight-bolder mt-2 ml-3">8</button>
+                <button onclick="myNumbers(9)" class="btn btn-light btn-outline-secondary btn-lg font-weight-bolder mt-2 ml-3">9</button>
+                <button onclick="myOperator('*')" class="btn btn-light btn-outline-secondary btn-lg font-weight-bolder mt-2 ml-3">X</button>
+        
+        
+                <button onclick="myNumbers(4)" class="btn btn-light btn-outline-secondary btn-lg font-weight-bolder mt-2">4</button>
+                <button onclick="myNumbers(5)" class="btn btn-light btn-outline-secondary btn-lg font-weight-bolder mt-2 ml-3">5</button>
+                <button onclick="myNumbers(6)" class="btn btn-light btn-outline-secondary btn-lg font-weight-bolder mt-2 ml-3">6</button>
+                <button onclick="myOperator('-')" class="btn btn-light btn-outline-secondary btn-lg font-weight-bolder mt-2 ml-3">-</button>
+        
+        
+                <button onclick="myNumbers(1)" class="btn btn-light btn-outline-secondary btn-lg font-weight-bolder mt-2">1</button>
+                <button onclick="myNumbers(2)" class="btn btn-light btn-outline-secondary btn-lg font-weight-bolder mt-2 ml-3">2</button>
+                <button onclick="myNumbers(3)" class="btn btn-light btn-outline-secondary btn-lg font-weight-bolder mt-2 ml-3">3</button>
+                <button onclick="myOperator('+')" class="btn btn-light btn-outline-secondary btn-lg font-weight-bolder mt-2 ml-3">+</button>
+                
+        
+                <button onclick="hey('j')" class="btn btn-light btn-outline-secondary btn-lg font-weight-bolder mt-2"><img src="images/icons8_Plus_Minus_25px.png" alt=""></button>
+                <button onclick="myNumbers(0)" class="btn btn-light btn-outline-secondary btn-lg font-weight-bolder mt-2 ml-3">0</button>
+                <button onclick="myNumbers('.')" class="btn btn-light btn-outline-secondary btn-lg font-weight-bolder mt-2 ml-3">.</button>
+                <button onclick="myAssignment('=')" class="btn btn-light btn-outline-secondary btn-lg font-weight-bolder mt-2 ml-3">=</button>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

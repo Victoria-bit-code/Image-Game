@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New class (REGEX)</title>
+</head>
+<body>
+    
+        <input id="pn" type="text" placeholder="number" required>
+        <div id="errorMessage"></div>
+        <button onclick="testit()">Submit</button>
+
+    <script>
+        function testit(){
+            pn.value = 'myValue';
+            // var myValue = /^[0-9]{11}$/
+            if (myValue == /^[0-9]{11}$/) {
+                alert(true);
+            }
+            // var regexForPhone = /^[0-9]{11}$/;
+            // alert(regexForPhone.test('08151329040'));
+            // pn.value = 'Must be eleven';
+            // alert(regexForPhone.test('08161329040'));
+        }
+    </script>
+</body>
+</html>

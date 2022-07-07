@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select name="" id="sel">
+        <option value="*">Multiplication</option>
+        <option value="/">division</option>
+        <option value="+">Addition</option>
+        <option value="-">Substraction</option>
+    </select>
+    <input type="number" min="1" id="rows" name="">
+    <input type="number" min="1" id="cols" name="">
+    <button onclick="myFunc()">click</button>
+    <div id="res"></div>
+    <script>
+      function myFunc () {
+        var tab = "<table border = '1'>";
+        for (var i = 1; i <= rows.value; i++) {
+            tab += "<tr>";
+            for (var j = 0; j <= cols.value; j++ ) {
+                tab += "<td>" + i + sel.value + j + "=" + eval(i+sel.value + j).toPrecision(3) + "</td>"
+            }
+            tab += "</tr>"
+        }
+        tab += "</table>";
+        res.innerHTML = tab;
+      }
+    </script>
+</body>
+</html>

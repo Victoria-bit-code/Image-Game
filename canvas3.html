@@ -1,0 +1,42 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <canvas style="border: 1px solid blue; width: 40%; height: auto; color: slateblue;" id="canvas" onmousedown="startPoint(event)" onmouseup="endPoint(event)">
+
+        </canvas> <br>
+        <button style="border: 2px solid red; border-radius: 5px; padding: 3px;" onclick="drawCircle()">Circle</button>
+        <button style="border: 2px solid red; border-radius: 5px; padding: 3px;">Rectangle</button>
+        <button style="border: 2px solid red; border-radius: 5px; padding: 3px;">Triangle</button>
+        <button style="border: 2px solid red; border-radius: 5px; padding: 3px;">Line</button>
+        <button style="border: 2px solid red; border-radius: 5px; padding: 3px;">Oval</button>
+        <button style="border: 2px solid red; border-radius: 5px; padding: 3px;">Eraser</button>
+        <script>
+            let ctx = canvas.getContext("2d");
+            let startX, startY, endX, endY;
+            let myShapes;
+            function startPoint(){
+            startX = event.x;
+            startY = event.y;
+            }
+            function endPoint(){
+            endX = event.x;
+            endY = event.y;
+           function drawCircle() {
+            ctx.beginPath();
+            ctx.arc(endX, endY, 30, 0, Math.PI*2, true);
+            ctx.stroke();
+           }
+        }
+            // function drawCircle () {
+            //     ctx.beginPath();
+            //     ctx.arc(endX, endY, 0, Math.PI*2, true);
+            //     ctx.stroke();
+            // }
+        </script>
+    </body>
+    </html>

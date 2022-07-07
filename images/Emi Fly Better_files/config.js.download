@@ -1,0 +1,6 @@
+
+window[window["TiktokAnalyticsObject"]].instance("C8SJHUF3FJSJ824L03J0").setAdvancedMatchingAvailableProperties({"email":true,"phone_number":true,"auto_email":false,"auto_phone_number":false});
+window[window["TiktokAnalyticsObject"]].instance("C8SJHUF3FJSJ824L03J0").setPixelInfo && window[window["TiktokAnalyticsObject"]].instance("C8SJHUF3FJSJ824L03J0").setPixelInfo({status: 0, name: "AE_USD Emirates Airline[3]", advertiserID: "7034388030886658049", setupMode: 1, partner: "", is_onsite: false });
+window[window["TiktokAnalyticsObject"]].setPCMDomain && window[window["TiktokAnalyticsObject"]].setPCMDomain("emirates.com");
+window[window["TiktokAnalyticsObject"]].setPCMConfig && window[window["TiktokAnalyticsObject"]].setPCMConfig([]);
+window[window["TiktokAnalyticsObject"]].enableFirstPartyCookie && window[window["TiktokAnalyticsObject"]].enableFirstPartyCookie(true);

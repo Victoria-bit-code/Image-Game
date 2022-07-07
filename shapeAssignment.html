@@ -1,0 +1,90 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="bootstrap-4.5.2/dist/css/bootstrap.min.css">
+        <title>Canvas Assignment</title>
+    </head>
+    <body>
+        <canvas style=" border:2px solid black" width="1000px" height="500px" id="canvas" onmousedown="endpoint()" onmouseup="startPoint()"> 
+
+        </canvas>
+        <br>
+        <div class="mt-2 ml-5">
+            <button class="rounded btn btn-danger btn-sm" onclick="drawCricle()">Circle</button>
+            <button class="rounded btn btn-sm btn-secondary" onclick="drawRect()">Rectangle</button>
+            <button class="rounded btn btn-sm btn-info" onclick="drawLine()">Line</button>
+            <button class="rounded btn btn-sm btn-default border border-danger" onclick="clearAll()">Eraser</button>
+            <input type="color">
+            <input type="range">
+        </div>
+        <script>
+            var sx, sy, ex, ey;
+            var a,b,c,d;
+            // myArray = []
+ 
+            startPoint = () => {
+                sx = event.x;
+                sy = event.y;
+                
+                // console.log(sx, sy);
+            }
+            endPoint = () => {
+                ex = event.x;
+                ey = event.y;
+                // console.log(ex, ey);
+            }
+            drawCricle = () => {
+                var c = document.getElementById('canvas');
+                var draw = c.getContext('2d');
+                draw.beginPath(sx,sy);
+                draw.arc(sx,sy,100,100,20,Math.PI);
+                draw.stroke();
+                alert()
+
+            }
+            function drawRect(){
+                var c = document.getElementById('canvas');
+                var draw = c.getContext('2d');
+                c.addEventListener('mousedown', down)
+                c.addEventListener('mouseup', up)
+            }
+            down = () =>{
+                
+                a = event.x;
+                b = event.y;
+            
+            }
+            up = () =>{
+                c = event.x;
+                d = event.y;
+                drawR();
+            }
+
+            function drawR (){
+                var c = document.getElementById('canvas');
+                var draw = c.getContext('2d');
+               // draw.beginPath();
+            //    alert(a);
+                draw.moveTo(a,b);
+               // draw.lineTo(c,b);
+                draw.lineTo(c,d);
+               // draw.lineTo(a,d);
+               // draw.lineTo(a,b);
+                draw.stroke();
+            }
+            // drawRect = () => {
+            //     var c = document.getElementById('canvas');
+            //     var draw = c.getContext('2d');
+            //     ctx.fillRect(25,25,100,100);
+            //     draw.clear
+            // }
+            // clearAll = () => {
+                
+            // }
+
+        </script>
+    </body>
+    </html>

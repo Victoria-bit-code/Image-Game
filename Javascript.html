@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="bootstrap-4.5.2/site/docs/4.5/assets/js/vendor/jquery.slim.min.js"></script>
+    <script src="bootstrap-4.5.2/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootstrap-4.5.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <script src="https://kit.fontawesome.com/5f5db04ddd.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"></script>
+    <link rel="icon" type="html/image/png" href="icon.png"> -->
+    <title>Document</title>
+</head>
+<body>
+     <!-- <input type="" id="myProperty" name="">
+    <input type="" id="myValue" name="">
+    <button onclick="addProperty ()"> click </button>
+
+    <div class="checkClass" style="background-color: red;" id="myDiv"> This is a Div I just created</div>
+    <p class="contenteditable"></p>
+    <input type="" id="myValue" value="12" name="myName">
+    <script type="text/javascript">
+     var containsTwoAsANumber = 2
+     var num = 5
+    alert ( num + 7); 
+
+    console.log (8);
+     myDiv.innerText = 1500
+    myDiv.innerHTML ="hello, good afternoon <div style='background-color: yellow'> Hope you are good </div>";
+    console.log (myValue.name);
+    myValue.value = "hello world";
+    </script> -->
+
+    <!-- <h1>What can Javascript do?</h1>
+    <p>It also changes the value of the src of an HTML attributes.</p>
+
+    <button onclick="document.getElementById('bulb').src='images/pic_bulbon.gif'">Turn on the bulb</button>
+
+                <img id="bulb" src="images/pic_bulboff.gif" alt="" style="width: 100px;">
+
+    <button onclick="document.getElementById('bulb').src='images/pic_bulboff.gif'">Turn off the bulb</button> -->
+
+    <!-- <button onclick="anything()">Click me</button>
+    <button onmouseover="anything()">Click me</button>
+    <button onmouseout="anything()">Click me</button>
+    <button onmousedown="anything()">Click me</button>
+    <button ondblclick="anything()">Click me</button> -->
+    
+    <!-- <input type="text" onkeyup="myFunc1()">
+    <input type="text" onkeydown="myFunc1()">
+    <input type="text" onkeypress="myFunc1()">
+    <input type="file" onchange="myFunc1()"> -->
+
+    <input type="" id="myValue" name="" value="90" onchange= "clickMe()">
+    <button onclick="clickMe()"> click </button>
+    <div id="demo"></div>
+    <p id="example"></p>
+    <button onclick="demo1.innerHTML = Date() ">Click me to see the time</button>
+    <p id="demo1"></p>
+    <button onclick="dispalydate() ">Display Time</button>
+    <p id="demo2"></p>
+    <button onclick="hours() ">Greeting</button>
+    <p id="demo3"></p>
+
+
+    <button onclick="bulb ()" id="button" style= "width: 80px;
+     height: 80px; border-radius: 50%;
+      background-color: rgb(70, 23, 114); color: #fff; margin-top: 00px;">Turn On
+    </button>
+    <img src="images/pic_bulboff.gif" alt="" id="myBulb">
+   <div>
+    <button onclick="displayInfo(event)">Click</button>
+   </div>
+    <button onclick="displayInfo(event)">btn</button>
+    
+     <button onclick="myFunc('Victoira')">Click</button>
+     <button onclick="myFunc('Temitope')">Press</button>
+     <button onclick="myFunc('Oyekunle')">Button</button>
+       <button onclick="myFunc(2, 3)">Click</button>
+     <button onclick="myFunc(4, 6)">Press</button>
+     <button onclick="myFunc(7, 8, 10)">Button</button>
+    <script>
+            function myFunc(m, n=1, o=1) {
+             alert(m * n * o);
+         }
+        // function myFunc(m) {
+        //     alert("My name is "+ m);
+        // }
+        // function displayName () {
+        //     var a = 7;
+        //     return a; 
+        // }
+         displayName();
+         function displayInfo(e) {
+            console.log(e.path);
+             console.log(e.target);
+             e.target.innerHTML = "Undo";
+         }
+      
+        // function bulb () {
+        //     if (button.innerHTML == 'Turn On') {
+        //         button.innerHTML = 'Turn Off'
+        //         myBulb.src ='images/pic_bulbon.gif';
+        //     } else {
+        //         button.innerHTML = 'Turn On';
+        //         myBulb.src ='images/pic_bulboff.gif';
+        //     }
+        // }
+  
+        // var a = 7.5;
+        // a * 6;
+        // console.log(typeof(a));
+
+        // // var taiwo = 9;
+        // var a = "taiwo" ;
+        // console.log(typeof(a));
+        // // var nigeria = [ 'Ondo', 'Oyo', 'Lagos', 'Kano']
+        // // console.log (typeof(nigeria));
+        // var nigeria = { noOfStates: 36, fct: "Abuja", president: "Buhari"};
+        // console.log(typeof(nigeria));
+
+        // JAVASCRIPT OPERATION
+
+        // Arithemetic operation
+        // Assignment operation
+        // Concatinating/string operation
+        // Comparism operation
+        // logical operation
+        // ternary operation
+
+        // ARITHMETHIC OPERATOR
+
+        // operation, operator, oprands
+        // + here is an operator
+        // 2 and 3 are the oprands
+        // so, oprator performs opeartion on the oprands
+        // +, -, /, *, %, ++, --
+
+        // var a = 7;
+        // a++; 
+        // alert(a);
+        // var b = 7;
+        // a--;
+        // alert(b);
+        // var a = 7;
+        // alert(a++ + a++);
+        // alert(a);
+
+        // // ASSIGNMENT OF OPERATION
+
+        // // = sign is an important assignment operator
+        // // The rest are;  +=, -=, /=, *=
+
+        // var c = 8;
+        // a -= 2;
+        // alert(a);
+
+        // // CONCATINATION/STRING 
+        // // There is only one string operator for this level which is +
+
+        // var name = "Taiwo";
+        // alert("my name is"+ " " +name)
+
+        // var num = "5";
+        // alert(1+4+num+2)
+        // var num = "kenny";
+        // alert(2+3+num+6+3);
+
+        // COMPARISM OPERATION
+        //<, <=, >, >=, ==, ===              
+        // var a = 3;
+        // if  (a < 4) {
+        //     alert("hello");
+        // }
+
+        // var a = "SQI college of ICT";
+        // alert("I am studying at" + " " + a);
+        // var a = 1;
+        // alert( ++a + a-- + 5 - a++ - 2 );
+        // var a = 5;
+        // --a;
+        // alert(a++ + a-- + --a + -20 + a);
+
+    // The falsy we have are; 0, null, undefined, false, " "(Empty string)
+
+   // IF ELSE
+//    var a = 7;
+//    if ( a == 7) {
+//        alert("hi")
+//    }else (alert("hello"))
+
+// var a = 3;
+// var b = 6;
+// var c = 10;
+// var d = 14;
+
+//     if (a==21) {
+//         alert('hi');
+//     } else if (b==6) {
+//        alert('good');
+//     }  else if (c==15) {
+//         alert('hello');
+//     }  else if (d==27) {
+//         alert('go away');
+//     }  else{
+//         alert('nothing');
+//     }
+
+// LOGICAL OPERATOR
+// not !, or ||, and &&,
+
+// not
+// var a = 2;
+// if (a !== '2') {
+//     alert('hello');
+// }
+
+// or 
+// var a = 3;
+// var b = 12;
+// if (a==4 || b==12) {
+//     alert('hello');
+// }
+
+// and
+// var a = 3;
+// var b = 12;
+// var c = 4
+// if (a==4 && (b==12 c==24)) {
+//     alert('hello');
+// }
+
+// CLASSWORK
+// 70-100 = excellent;
+// 60-69 = good 
+// 50-59 = average
+// 45-49 = fair
+// 40-44 = pass
+// 0-39 = fail 
+// negative numbers = out of range
+// more than 100 = out of range
+// hfjhgdsfjbd = not a number
+// var a = "knhdnh";
+//     if (a >=70 && a<=100) {
+//         alert('excellent');
+//      }else if (a >=60 && a<=69) {
+//         alert('good');
+//     } else if (a >=50 && a<=59) {
+//         alert('average');
+//     } else if (a >=45 && a<=49) {
+//         alert('fair');
+//     } else if (a >=40 && a<=44) {
+//         alert('pass');
+//     } else if (a >=0 && a<=39) {
+//         alert('fail');
+//     } else if (a <0 || a >100) {
+//         alert('out of range');
+//     } else if (a >100) {
+//         alert('out of range');
+//     } else {
+//         alert('not a number');
+//     }
+
+// or else if (typeof(a) !=='Number') {
+//     alert('Not a number');
+// }
+// function anything() {
+//     alert('hi');
+// }
+// function myFunc1() {
+//     console.log('good');
+// }
+// var a = 7;
+// function anyhing() {
+//     var a = 3;
+// a-=2;
+// alert(a);
+// }
+
+//    function myFunc1() {
+//        alert(a);
+
+//    }
+   
+    </script>
+<!-- 
+     <button onclick="OnOff ()" id="btn" style= "width: 80px;
+    height: 80px; border-radius: 50%;
+     background-color: rgb(70, 23, 114); color: #fff; margin-top: 00px; outline: none;">Turn On</button>
+    <img src="images/pic_bulboff.gif" alt="" id="example">
+    <script>
+        function OnOff () {
+            if (btn.innerHTML == 'Turn On') {
+                btn.innerHTML = 'Turn Off'
+                example.src = 'images/pic_bulbon.gif';
+            } else {
+                btn.innerHTML = 'Turn On';
+                example.src = 'images/pic_bulboff.gif';
+            }
+        }
+    </script> 
+    <br> <br>
+
+     <button onclick="myBtn(2)">2</button>
+    <button onclick="myBtn(3)">3</button>
+    <input type="" value="" name="" id="input">
+    
+    <script>
+        function myBtn (m) {
+            if(input.value == "") {
+                input.value = m;
+            } else{
+                a = input.value*m;
+                input.value = a;
+            } 
+        }
+    </script>  -->
+
+     
+    <!-- <div id="ans"></div>
+    <input type="text" id="inp">
+    <button onclick="myAns()">=</button>
+    <script>
+        function myAns() {
+            if(inp.value=='2*3'){
+                inp.value=2*3
+            }else if(inp.value=='3*3'){
+                inp.value=9  
+            }
+
+        } 
+    </script>
+
+   
+    <button onclick="myDemo(2)">2</button>
+    <button onclick="myDemo(3)">3</button>
+    <input type="text"  value="" id="myInput">
+
+    <button onclick="inputFirst(2)">2</button>
+    <button onclick="inputFirst(3)">3</button>
+    <input type="text" id="res" name>
+    <input type="text" name="" value="" id="hey">
+    <button onclick="resres(2)">2</button>
+    <button onclick="resres(3)">3</button> -->
+
+    <script>
+        // function resres(r) {
+        //     hey.value +=r
+        // }
+        // function resres(r) {
+        //     var a = 
+        //  }
+        // function inputFirst (a) {
+        //     alert (a);
+        //     return a*3;
+        // }
+        //  console.log(inputFirst(12));
+        //  alert('hello')
+        // function inputFirst(m) {
+        //     if (res.value) {
+        //         res.value *=m; 
+        //     }else {
+        //         res.value = m
+        //     }
+        // }
+        // function myDemo (m) {
+        //     if (myInput.value == "") {
+        //         myInput.value = m;
+        //     }
+        //      else {
+        //     a = myInput.value*m;
+        //     myInput.value = a;       
+        //     }
+        // }
+
+    // function button(a) {
+    //     if (btn.innerHTML == 'ON') {
+    //         btn.innerHTML = 'OFF';
+    //         input.value.display
+    //     }else {
+    //         btn.innerHTML = 'ON'
+    //         input.value.none;
+    //     }
+    // function hey(m) {
+    //     m === 'j'
+    //     input.value = Math.sqrt (input.value);
+    // }
+    </script>
+
+
+
+<!-- <button onclick="hey ()">Click me</button>
+<button onclick="hey ()">Click</button>
+<button onclick="hey ()">Try now</button>
+<button onclick="hey ()">Click</button>
+<div id="demo"></div>
+<script>
+    function hey () {
+        
+    }
+</script> -->
+
+<script>
+    var a = 6;
+    var b = a==4?8:12;
+    alert (b);
+</script>
+
+<input type="text" id="myInp" name="">
+<!-- <button onclick="myFunc()">=</button> -->
+<button onclick="myCompute('sin')">sin</button>
+<button onclick="myCompute('cos')">cos</button>
+<button onclick="myCompute('tan')">tan</button>
+
+<script>
+    function myCompute(m) {
+        var myVal;
+        var a = myInp.value*Math.PI/180;
+        if (m==='sin') {
+            myVal = Math.sin(a);
+        } else if (m === 'cos') {
+            myVal = Math.cos(a);
+        }else if (m === 'tan') {
+            myVal = Math.tan;
+        }else {
+            myInp.value = myVal;
+        }
+    }
+    // function myFunc() {
+    //     myInp.value = Math.sin(Math.PI/180*eval(myInp.value));
+    // }
+</script>
+</body>
+</html>

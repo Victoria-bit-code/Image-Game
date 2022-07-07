@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script>
+        let a = 5;
+        function myFile() {
+            let b = 2;
+            let c;
+            if (a == 5) {
+             c = 3;
+            }
+        alert(c * b);
+        }
+        myFile()
+        </script> -->
+        <div id="res"></div>
+</body>
+<script>
+    const myFunc = (e, i) => {
+        let result = arr[i].price * e.target.value;
+        document.getElementById('taiwo' + i).innerHTML = result;
+    }
+    let arr = [{name:"Phone", price: 2000, qty: 5}, {name: "Laptop", price: 200000, qty: 10}];
+    let tab = "<table border = '2'>";
+    for (var i = 0; i < arr.length; i++) {
+        tab += `<tr><td>${arr[i].name} </td><td>${arr[i].price} </td> <td> ${arr[i].qty}</td><td><input onkeyup = 'myFunc(event, ${i}'> </td>
+            <td id = 'taiwo${i}'>hello</td></tr>`;
+    }
+    tab += '</table>';
+    res.innerHTML = tab;
+</script>
+</html>

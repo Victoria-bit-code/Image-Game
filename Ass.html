@@ -1,0 +1,53 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="bootstrap-4.5.2/dist/css/bootstrap.min.css">
+        <title>REGEXASSIGNMENT</title>
+    </head>
+    <body style=" background-color: beige; background-repeat: no-repeat; background-size:cover;">
+        <center>
+            <br> <br><br> 
+            <fieldset >
+                <legend><p class="text-success mt-3 h4">Kindly fill the form below</p>
+                    <input type="name" placeholder="Surname First" class="form-control w-25 mt-5 border-success">
+                    <input type="text" id="pn" placeholder="Phone Number" class="form-control w-25 mt-4 border-success">
+                    <input type="email" id="mail" placeholder="abc@email.com"  class="form-control w-25 mt-4 border-success">
+                    <input type="password" id="pass" placeholder="Password" class="form-control w-25 mt-4 border-success">
+                    <input type="password" id="confrim" placeholder=" Confirm Password" class="form-control w-25 mt-4 border-success">
+                    <button onclick="validateForm()" class="rounded-pill mt-4 btn-large border-white bg-success text-white ">Submit</button>
+                </legend>
+            </fieldset>
+        </center>
+        <script>
+        
+            function validateForm() {
+                var regexForPhone = /^[\d]{11}$/;
+                    if (regexForPhone.test(pn.value)== false) {
+                    pn.value = 'Must be 11';
+                    pn.className = "form-control is-invalid w-25 mt-4";
+                }
+
+                    var regexForEmail = /^[\w]+[@][\w]+[.][a-z]+([.][a-z]+)?$/;
+                    if (regexForEmail.test(mail.value)== false) {
+                    mail.value = 'Charater @ must be included';
+                    mail.className = "form-control is-invalid w-25 mt-4";
+                } 
+                    
+                    var regexForpassword = /^([A-Z][a-z]+[!@#$%^&*]){6,10}$/;
+                    if (regexForpassword.test(pass.value) == false) {
+                    pass.type = 'text';
+                    pass.value = 'Must have a capital letter, a character and max of 10';
+                    pass.className = 'form-control is-invalid w-25 mt-4';
+                }  
+                if (regexForpassword.test(pass.value) != confrim.value) {
+                    confrim.type = 'text';
+                    confrim.value = 'Repeat the same password';
+                    confrim.className = 'form-control is-invalid w-25 mt-4';
+                }      
+            }
+        </script>
+    </body>
+    </html>

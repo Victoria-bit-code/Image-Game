@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href=    "bootstrap-4.5.2/dist/css/bootstrap.min.css">
+    <title>Admin Dashboard</title>
+</head>
+<style>
+      body {
+                background-color: rgb(212,236,213);
+                /* background-color: rgb(94, 180, 97); */
+            }
+            /* .myBorder {
+            background-color: 3px solid rgb(55,108,58);
+        } */
+</style>
+<body onload = 'load()'>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 bg-success form-control text-right ">
+                <img src="images/loginIcon.png" alt="" width="30" class="float-left">
+                <!-- <a href="regPage.html" class="text-light text-decoration-none mr-2"> Registration page</a>
+                <a href="applicantList.html" class="text-light text-decoration-none mr-2">Applicant Page</a>
+                <a href="loginAss.html" class="text-light text-decoration-none mr-2">Logout</a> -->
+               
+            </div>
+        </div>
+        <small id="sm" class="h3 mt-5"></small>
+    </div>
+    <script>
+        var applicantName = JSON.parse(localStorage.getItem('subList'));
+
+        load = () => {
+            sm.innerHTML = `<center><b>Welcome ${applicantName.firstName} ${applicantName.lastName}</b></center>`;
+        }
+    </script>
+</body>
+</html>

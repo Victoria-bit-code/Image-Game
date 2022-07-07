@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAVASCRIPT CLASS</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+</head>
+<script>
+    // VARIABLE DECLARATION
+    var name;           // declaration
+    name = "VICTORIA"  // assignment
+
+    var a = 5;
+    var b = 10;
+
+    // COMPUTATION
+    var c = a + b   //15
+    var c = 10 + b; //ADD + //20
+    var d = 10 - b; //SUBSTRACT -//10
+    var e = 10 / b;  //DIVIDE - //1
+    var f = 10 * b; //MULTIPLY - //100
+
+    var total = (c + d + e + f) * 2;
+
+    var name1 = "Bayo";
+    var name2 = "Segun";
+
+    var newName = name1 + " " + name2;
+
+    var test = name1 + b; //bayo10
+
+    var base = 5;
+    var height = 25;
+
+    var area = 1/2 *(base * height);
+
+//OBJECT
+    var student1 = {
+        name: "Segun",
+        age: 35,
+        class: "Nursery 2",
+        height: "1cm",
+        behavoiur: "Hmmmmmm",
+        wordOfMouth: "Hmmmmm",
+        body: {eyes: 4, mouth: 10, head: 3}
+    };
+
+        student1['name'] = "Victoria";
+        student1.class = "Creche";
+        student1.height = "5m";
+
+    var hisEyes = student1.body.eyes;
+
+//ARRAY
+    var students = [ "Rosheedah", "Adeola", "Idayah", "Hekram", "Adebayo", "oluwasegun",
+            "Victoria", "Olayinka", "Favour"];
+
+            console.log(students [0]);
+
+            var students = [
+                "Favour", 5, "89989", {name: "Segun", wordOfMouth: "Hmmmmmm"}
+            ];
+
+            console.log(students [3].wordOfMouth);
+            console.log(students.length)
+            // console.log(students);
+
+    console.log(hisEyes)
+    //console.log(student1['body']['eyes']);
+    //console.log(student1.body.eyes)
+
+    console.log(area);
+
+
+    console.log(test);
+    console.log(newName);
+    console.log(total);
+
+
+   // IF STATEMENT
+//    if (condition){
+//        //statements
+//    }
+//    else{
+//        //statement
+//    }
+
+
+    //IF STATEMENTS
+    // AND - STATEMENT && STATEMENT
+    //OR - STATEMENT || STATEMENT
+    // if (statement && statement) {
+    //     //statementoftyvnm./
+    // }else if(condition){
+    //     //statement
+    // }else if(condition){
+    //     //statement
+    // }else{
+    //     //statement
+    // }
+
+    // var number = 6;
+    // if(number%2 == 0){
+    //     console.log("EVEN")
+    // }else{
+    //     console.log("ODD")
+    // }
+
+     var number = 30;
+     if(number%3 == 0 && number%5 == 0){
+         console.log("fizz && buzz")
+     }else if( number%3 == 0){
+         console.log("fizz")
+     }else if(number%5 == 0){
+         console.log("buzz")
+     }
+
+
+     //ASSIGNMENT
+
+     var student2 = [
+     {
+        name: "Victoria",
+        age: 12,
+        class: "Level 2",
+        height: "1.2ft",
+        behaviourr: "Calm",
+        wordOfMouth: "wow",
+        body: {eyes: 2, mouth: 1, head: 1}
+    },
+
+    {
+        name: "Segun",
+        age: 10,
+        class: "Nursery 2",
+        height: "1.8ft",
+        behaviour: "weird",
+        wordOfMouth: "funny",
+        body: {eyes: 4, mouth: 10, head: 3}
+    },
+    
+    {
+        name: "Rosheedah",
+        age: 24,
+        class: "level 3",
+        height: "1.3ef",
+        behaviour: "gentle",
+        wordOfMouth: "calm",
+        body: {eyes: 2, mouth: 1, head: 1}
+    },
+    
+    {
+        name: "Adeola",
+        age: 35,
+        class: "level 5",
+        height: "1ft",
+        behaviour: "Nice",
+        wordOfMouth: "funny",
+        body: {eyes: 2, mouth: 1, head: 1}
+    },
+    
+    {
+        name: "Idayah",
+        age: 25,
+        class: "level 5",
+        height: "1.5ft",
+        behaviour: "Very okay",
+        wordOfMouth: "Hmmmmm",
+        body: {eyes: 4, mouth: 10, head: 3}
+    },
+    
+    {
+        name: "Hekram",
+        age: 35,
+        class: "Nursery 2",
+        height: "1cm",
+        behavoiur: "Hmmmmmm",
+        wordOfMouth: "Hmmmmm",
+        body: {eyes: 4, mouth: 10, head: 3}
+    },
+    
+    {
+        name: "Adebayo",
+        age: 35,
+        class: "Nursery 2",
+        height: "1cm",
+        behavoiur: "Hmmmmmm",
+        wordOfMouth: "Hmmmmm",
+        body: {eyes: 4, mouth: 10, head: 3}
+    },
+    
+    {
+        name: "Olayinka",
+        age: 35,
+        class: "level 2",
+        height: "1.8ft",
+        behaviour: "calm",
+        wordOfMouth: "Hmmmmmm!",
+        body: {eyes: 2, mouth: 1, head: 1}
+    },
+    
+     ];
+     console.log(student2)
+     console.log(student2[7].name)
+
+   var array = [1,2,3,4,5];
+   console.log(array.splice(2, 4)); 
+
+</script>
+<body>
+    <input type="text" id="myInp" name="">
+    <button onclick="myCompute('sin')">sin</button>
+    <button onclick="myCompute('cos')">cos</button>
+    <button onclick="myCompute('tan')">tan</button>
+    <button onclick="myFunc()">=</button>
+
+    <div id="res">hi</div>
+<script>
+    res.style.color = 'red';
+    res.style.backgroundColor = 'blue';
+    red.style.width = '20px';
+
+    function myCompute(v) {
+        var myVal;
+        var a = myInp.value*Math.PI/180;
+        if (v ==='sin') {
+            myVal = Math.sin(a);
+        } else if (v === 'cos') {
+            myVal = Math.cos(a);
+        }else if (v === 'tan') {
+            myVal = Math.tan(a);
+        }
+        myInp.value =myVal;  
+    }
+
+    function myFunc() {
+        // subString()
+        // indexOf()
+        // slice()
+        // splice()
+        // find()
+        // myInp.value = myInp.value[1];
+        myInp.value = Math.sin(Math.PI/180*eval(myInp.value));
+    }
+</script>
+    <!-- <input type="text"> -->
+</body>
+</html>

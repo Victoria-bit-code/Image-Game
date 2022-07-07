@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'PT Sans Narrow',Helvetica,Arial,sans-serif;
+    width: 100%;
+    background-color: beige;
+}
+.content {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    color: darkblue;
+    /* color: darkorange; */
+}
+hr {
+   color: #ffffff;
+}
+h1 {
+    font-size: 3em;
+    font-weight: 500;
+}
+span {
+    font-size: 2.5em;
+    line-height: 25px;
+}
+p {
+    font-size: 1.1em;
+}
+
+button {
+    font-size: 1em;
+    background-color: darkblue;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    padding: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+/* FOR THE BUYER */
+
+.container2 {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    color: black
+    /* color: darkorange; */
+}
+table {
+    font-size: 1.2em;
+    border-collapse: collapse;
+    /* padding-left: 20px; */
+    padding: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+    width: 90%;
+}
+.message {
+    color:#ff4500;
+    font-family: cursive;
+    font-size: small;
+}
